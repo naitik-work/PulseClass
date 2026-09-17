@@ -17,6 +17,9 @@ export function AuthProvider({ children }) {
       const data = await authService.getMe();
       setUser(data.user);
     } catch {
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem('token');
+      }
       setUser(null);
     } finally {
       setLoading(false);
@@ -25,17 +28,26 @@ export function AuthProvider({ children }) {
 
   const login = useCallback(async (credentials) => {
     const data = await authService.login(credentials);
+    if (data.token && typeof window !== 'undefined') {
+      sessionStorage.setItem('token', data.token);
+    }
     setUser(data.user);
     return data;
   }, []);
 
   const signup = useCallback(async (userData) => {
     const data = await authService.signup(userData);
+    if (data.token && typeof window !== 'undefined') {
+      sessionStorage.setItem('token', data.token);
+    }
     setUser(data.user);
     return data;
   }, []);
 
   const logout = useCallback(async () => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('token');
+    }
     await authService.logout();
     setUser(null);
   }, []);

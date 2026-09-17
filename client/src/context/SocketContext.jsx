@@ -19,8 +19,10 @@ export function SocketProvider({ children }) {
       return;
     }
 
-    // Connect to socket server (cookies sent automatically via withCredentials)
+    // Connect to socket server with tab-isolated token if available, fallback to cookie
+    const token = sessionStorage.getItem('token');
     const socket = io({
+      auth: token ? { token } : undefined,
       withCredentials: true,
       reconnection: true,
       reconnectionAttempts: Infinity,

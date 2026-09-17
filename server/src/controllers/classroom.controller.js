@@ -14,7 +14,11 @@ const createClassroom = async (req, res, next) => {
     if (!institute) {
       throw ApiError.notFound('Institute not found');
     }
-    if (institute.owner.toString() !== req.user._id.toString()) {
+
+    const ownerId = (institute.owner?._id || institute.owner).toString();
+    const currentUserId = (req.user?._id || req.user?.id).toString();
+
+    if (ownerId !== currentUserId) {
       throw ApiError.forbidden('Only the institute owner can create classrooms');
     }
 
@@ -105,16 +109,19 @@ const getInstituteClassrooms = async (req, res, next) => {
   try {
     const instituteId = req.params.id;
 
-    // Verify user is a member of the institute
+    // Verify user is a member or owner of the institute
     const institute = await Institute.findById(instituteId);
     if (!institute) {
       throw ApiError.notFound('Institute not found');
     }
 
+    const currentUserId = (req.user?._id || req.user?.id).toString();
+    const isOwner = (institute.owner?._id || institute.owner).toString() === currentUserId;
     const isMember = institute.members.some(
-      (m) => m.toString() === req.user._id.toString()
+      (m) => (m._id || m).toString() === currentUserId
     );
-    if (!isMember) {
+
+    if (!isOwner && !isMember) {
       throw ApiError.forbidden('You are not a member of this institute');
     }
 

@@ -42,11 +42,12 @@ const signup = async (req, res, next) => {
       role,
     });
 
-    setTokenCookie(res, user._id);
+    const token = setTokenCookie(res, user._id);
 
     res.status(201).json({
       success: true,
       user: user.toJSON(),
+      token,
     });
   } catch (error) {
     next(error);
@@ -72,11 +73,12 @@ const login = async (req, res, next) => {
       throw ApiError.unauthorized('Invalid email or password');
     }
 
-    setTokenCookie(res, user._id);
+    const token = setTokenCookie(res, user._id);
 
     res.json({
       success: true,
       user: user.toJSON(),
+      token,
     });
   } catch (error) {
     next(error);

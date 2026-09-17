@@ -5,12 +5,18 @@ const API_BASE = '/api';
  * Automatically includes credentials (cookies).
  */
 async function request(url, options = {}) {
+  const token = typeof window !== 'undefined' ? sessionStorage.getItem('token') : null;
+  const headers = {
+    'Content-Type': 'application/json',
+    ...options.headers,
+  };
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const config = {
     ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
+    headers,
     credentials: 'include',
   };
 

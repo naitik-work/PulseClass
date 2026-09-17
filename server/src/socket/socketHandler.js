@@ -17,7 +17,7 @@ const activeTimers = new Map();
 async function authenticateSocket(socket, next) {
   try {
     const cookies = cookie.parse(socket.handshake.headers.cookie || '');
-    const token = cookies.token || socket.handshake.auth?.token;
+    const token = socket.handshake.auth?.token || cookies.token;
 
     if (!token) {
       return next(new Error('Authentication required'));
