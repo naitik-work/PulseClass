@@ -1,5 +1,5 @@
 /**
- * Reusable Button component with high-contrast variants, smooth transitions, and sizes.
+ * Reusable Button component with theme-aware variants, high-contrast states, and smooth transitions.
  */
 export default function Button({
   children,
@@ -12,21 +12,21 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium tracking-tight transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer rounded-lg';
+    'inline-flex items-center justify-center font-medium tracking-tight transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer rounded-lg';
 
   const variants = {
     primary:
-      'bg-indigo-600 !text-white hover:bg-indigo-500 active:bg-indigo-700 shadow-xs hover:shadow-sm active:scale-[0.98]',
+      'bg-indigo-600 dark:bg-indigo-500 !text-white hover:bg-indigo-500 dark:hover:bg-indigo-400 active:bg-indigo-700 dark:active:bg-indigo-600 shadow-xs hover:shadow-sm active:scale-[0.98]',
     secondary:
-      'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50/80 hover:border-slate-300 hover:text-slate-900 active:bg-slate-100 shadow-2xs active:scale-[0.98]',
+      'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50/80 dark:hover:bg-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white active:bg-slate-100 dark:active:bg-slate-800 shadow-2xs active:scale-[0.98]',
     outline:
-      'bg-transparent text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 active:scale-[0.98]',
+      'bg-transparent text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white active:scale-[0.98]',
     danger:
-      'bg-rose-600 !text-white hover:bg-rose-500 active:bg-rose-700 shadow-xs active:scale-[0.98]',
+      'bg-rose-600 dark:bg-rose-500 !text-white hover:bg-rose-500 dark:hover:bg-rose-400 active:bg-rose-700 dark:active:bg-rose-600 shadow-xs active:scale-[0.98]',
     ghost:
-      'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 active:bg-slate-200/70 active:scale-[0.98]',
+      'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800 active:bg-slate-200/70 dark:active:bg-slate-700 active:scale-[0.98]',
     success:
-      'bg-emerald-600 !text-white hover:bg-emerald-500 active:bg-emerald-700 shadow-xs active:scale-[0.98]',
+      'bg-emerald-600 dark:bg-emerald-500 !text-white hover:bg-emerald-500 dark:hover:bg-emerald-400 active:bg-emerald-700 dark:active:bg-emerald-600 shadow-xs active:scale-[0.98]',
   };
 
   const sizes = {

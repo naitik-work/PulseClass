@@ -10,6 +10,7 @@ import CustomPulseBuilder from '../components/CustomPulseBuilder';
 import ConfirmDialog from '../components/ui/ConfirmDialog';
 import Button from '../components/ui/Button';
 import Badge from '../components/ui/Badge';
+import ThemeToggle from '../components/ThemeToggle';
 import { PageLoader } from '../components/ui/Spinner';
 
 export default function InstructorSessionPage() {
@@ -200,28 +201,29 @@ export default function InstructorSessionPage() {
   const percentages = getDistributionPercentages();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50/80 dark:bg-[#090d16] text-slate-900 dark:text-slate-100 flex flex-col justify-between selection:bg-indigo-500 selection:text-white theme-transition">
       {/* Top Bar */}
-      <div className="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md px-4 sm:px-6 py-3 sticky top-0 z-30">
+      <div className="border-b border-slate-200/80 dark:border-slate-800/80 bg-white/85 dark:bg-slate-900/70 backdrop-blur-md px-4 sm:px-6 py-3 sticky top-0 z-30 transition-colors">
         <div className="flex items-center justify-between max-w-6xl mx-auto">
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-950/80 text-rose-300 border border-rose-800/60">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/60">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-500" />
               </span>
               STUDIO LIVE
             </span>
-            <span className="text-xs sm:text-sm font-medium text-slate-400 hidden sm:inline-block">
+            <span className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hidden sm:inline-block">
               {sessionState?.sessionId ? 'Real-time broadcast active' : 'Connecting...'}
             </span>
           </div>
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-full">
-              <span className={`w-1.5 h-1.5 rounded-full ${connected ? 'bg-emerald-400 ring-2 ring-emerald-400/20' : 'bg-rose-400'}`} />
-              <span className="hidden sm:inline">{connected ? 'Socket Connected' : 'Reconnecting...'}</span>
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <ThemeToggle size="sm" />
+            <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 px-2.5 py-1 rounded-full">
+              <span className={`w-1.5 h-1.5 rounded-full ${connected ? 'bg-emerald-500 dark:bg-emerald-400 ring-2 ring-emerald-500/20' : 'bg-rose-400'}`} />
+              <span>{connected ? 'Socket Connected' : 'Reconnecting...'}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-slate-300 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-full">
+            <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100/80 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 px-2.5 py-1 rounded-full">
               <svg className="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M7 8a3 3 0 100-6 3 3 0 000 6zM14.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM1.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 017 18a9.953 9.953 0 01-5.385-1.572zM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 00-1.588-3.755 4.502 4.502 0 015.874 2.636.818.818 0 01-.36.98A7.47 7.47 0 0114.5 16z" />
               </svg>
@@ -242,20 +244,20 @@ export default function InstructorSessionPage() {
       <div className="flex-1 max-w-3xl w-full mx-auto px-4 py-8 sm:py-12 flex flex-col justify-center">
         {/* Active Pulse View */}
         {activePoll ? (
-          <div className="animate-fade-in-up bg-slate-900/70 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+          <div className="animate-fade-in-up bg-white dark:bg-[#111827] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-md dark:shadow-2xl">
             {/* Header tags */}
             <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-indigo-950 text-indigo-300 border border-indigo-800/60">
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800/60">
                   {activePoll.category || 'General'}
                 </span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-800 text-slate-400">
+                <span className="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                   {activePoll.responseType}
                 </span>
               </div>
               {activePoll.isAnonymous && (
-                <span className="flex items-center gap-1 text-xs text-slate-400">
-                  <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+                  <svg className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
                   </svg>
                   100% Anonymous
@@ -264,23 +266,23 @@ export default function InstructorSessionPage() {
             </div>
 
             {/* Question */}
-            <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug mb-6 tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-6 tracking-tight">
               {activePoll.question}
             </h2>
 
             {/* Timer & Response Velocity */}
-            <div className="grid grid-cols-2 gap-3 mb-6 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80">
+            <div className="grid grid-cols-2 gap-3 mb-6 p-3.5 rounded-xl bg-slate-50 dark:bg-[#090d16] border border-slate-200/80 dark:border-slate-800/80">
               <div>
                 <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Time Window</span>
                 <div className={`text-2xl font-mono font-bold mt-0.5 ${
-                  remainingTime > 3 ? 'text-indigo-400' : remainingTime > 0 ? 'text-amber-400' : 'text-slate-600'
+                  remainingTime > 3 ? 'text-indigo-600 dark:text-indigo-400' : remainingTime > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400 dark:text-slate-600'
                 }`}>
                   {remainingTime > 0 ? `${remainingTime}s remaining` : 'Pulse Closed'}
                 </div>
               </div>
               <div>
                 <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Responses Received</span>
-                <div className="text-2xl font-mono font-bold text-white mt-0.5">
+                <div className="text-2xl font-mono font-bold text-slate-900 dark:text-white mt-0.5">
                   {analytics?.responseCount || 0}
                   <span className="text-sm font-normal text-slate-500"> / {analytics?.totalParticipants || totalStudents}</span>
                 </div>
@@ -289,20 +291,20 @@ export default function InstructorSessionPage() {
 
             {/* Response Distribution Bars */}
             <div className="space-y-3">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Live Aggregation</span>
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Live Aggregation</span>
               {Object.entries(analytics?.distribution || {}).map(([label, count]) => {
                 const pct = percentages[label] || 0;
                 return (
                   <div key={label} className="space-y-1">
                     <div className="flex items-center justify-between text-xs font-medium">
-                      <span className="text-slate-300">
+                      <span className="text-slate-700 dark:text-slate-300">
                         {activePoll.responseType === 'rating' ? `Rating ${label} ★` : label}
                       </span>
-                      <span className="text-slate-400 font-mono">{pct}% ({count} vote{count !== 1 ? 's' : ''})</span>
+                      <span className="text-slate-500 dark:text-slate-400 font-mono">{pct}% ({count} vote{count !== 1 ? 's' : ''})</span>
                     </div>
-                    <div className="h-4 bg-slate-800 rounded-full overflow-hidden relative">
+                    <div className="h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden relative">
                       <div
-                        className="h-full bg-indigo-500 rounded-full transition-all duration-300 ease-out"
+                        className="h-full bg-indigo-600 dark:bg-indigo-500 rounded-full transition-all duration-300 ease-out"
                         style={{ width: `${pct}%` }}
                       />
                     </div>
@@ -312,11 +314,11 @@ export default function InstructorSessionPage() {
             </div>
 
             {/* Quick action bar */}
-            <div className="mt-8 pt-5 border-t border-slate-800 flex items-center justify-between">
+            <div className="mt-8 pt-5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
               <Button size="sm" onClick={() => setShowPalette(true)}>
                 New Quick Pulse (Q)
               </Button>
-              <Button variant="ghost" size="sm" onClick={() => setShowCustomBuilder(true)} className="text-slate-400 hover:text-white">
+              <Button variant="ghost" size="sm" onClick={() => setShowCustomBuilder(true)} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
                 Custom Question (C)
               </Button>
             </div>
@@ -324,13 +326,13 @@ export default function InstructorSessionPage() {
         ) : (
           /* Ready state */
           <div className="text-center animate-fade-in py-12 px-4">
-            <div className="w-16 h-16 rounded-2xl bg-indigo-950/60 border border-indigo-800/50 flex items-center justify-center mx-auto mb-5 text-indigo-400 shadow-lg shadow-indigo-950/50">
+            <div className="w-16 h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/50 flex items-center justify-center mx-auto mb-5 text-indigo-600 dark:text-indigo-400 shadow-sm dark:shadow-lg dark:shadow-indigo-950/50">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight mb-2">Live Session Active</h2>
-            <p className="text-sm text-slate-400 mb-8 max-w-md mx-auto leading-relaxed">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">Live Session Active</h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-8 max-w-md mx-auto leading-relaxed">
               Ask quick pulse checks during lectures to immediately verify student comprehension without breaking presentation flow.
             </p>
 
@@ -338,17 +340,16 @@ export default function InstructorSessionPage() {
               <Button
                 onClick={() => setShowPalette(true)}
                 size="lg"
-                className="bg-indigo-600 hover:bg-indigo-500 shadow-md shadow-indigo-600/30"
+                className="bg-indigo-600 hover:bg-indigo-500 shadow-md shadow-indigo-600/20"
               >
-                Launch Quick Pulse <kbd className="ml-2 px-1.5 py-0.5 text-xs font-mono bg-indigo-700 rounded">Q</kbd>
+                Launch Quick Pulse <kbd className="ml-2 px-1.5 py-0.5 text-xs font-mono bg-indigo-700 rounded text-white">Q</kbd>
               </Button>
               <Button
                 variant="secondary"
                 onClick={() => setShowCustomBuilder(true)}
                 size="lg"
-                className="bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800 hover:text-white"
               >
-                Create Custom <kbd className="ml-2 px-1.5 py-0.5 text-xs font-mono bg-slate-800 rounded">C</kbd>
+                Create Custom <kbd className="ml-2 px-1.5 py-0.5 text-xs font-mono bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">C</kbd>
               </Button>
             </div>
 
@@ -363,17 +364,17 @@ export default function InstructorSessionPage() {
                     <button
                       key={t.id}
                       onClick={() => handleLaunchPulse(t)}
-                      className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/60 hover:bg-slate-900 transition-all text-left flex items-center justify-between group cursor-pointer"
+                      className="p-3 rounded-xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 hover:border-indigo-500/60 dark:hover:border-indigo-500/60 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all text-left flex items-center justify-between group cursor-pointer shadow-2xs"
                     >
                       <div className="flex items-center gap-2.5">
-                        <span className="w-6 h-6 rounded-md bg-slate-800 flex items-center justify-center text-xs font-mono text-slate-400 group-hover:text-indigo-400">
+                        <span className="w-6 h-6 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs font-mono text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
                           ⚡
                         </span>
-                        <span className="text-xs sm:text-sm text-slate-300 group-hover:text-white font-medium">
+                        <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-white font-medium">
                           {t.question}
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">
+                      <span className="text-[11px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">
                         {t.responseType}
                       </span>
                     </button>
@@ -386,13 +387,13 @@ export default function InstructorSessionPage() {
       </div>
 
       {/* Keyboard Shortcuts Dock */}
-      <div className="border-t border-slate-900 bg-slate-950/90 px-4 py-2 text-center">
-        <div className="max-w-xl mx-auto flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-500">
-          <span><kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 text-slate-400 font-mono">Q</kbd> Quick Palette</span>
-          <span><kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 text-slate-400 font-mono">1–9</kbd> Fast Select</span>
-          <span><kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 text-slate-400 font-mono">C</kbd> Custom Poll</span>
-          <span><kbd className="px-1.5 py-0.5 bg-slate-900 rounded border border-slate-800 text-slate-400 font-mono">E</kbd> End Session</span>
-          <button onClick={() => setShowShortcuts(true)} className="text-slate-400 hover:text-indigo-400 underline cursor-pointer">
+      <div className="border-t border-slate-200 dark:border-slate-900 bg-white/90 dark:bg-slate-950/90 px-4 py-2 text-center transition-colors">
+        <div className="max-w-xl mx-auto flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-500 dark:text-slate-400">
+          <span><kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-mono">Q</kbd> Quick Palette</span>
+          <span><kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-mono">1–9</kbd> Fast Select</span>
+          <span><kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-mono">C</kbd> Custom Poll</span>
+          <span><kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-mono">E</kbd> End Session</span>
+          <button onClick={() => setShowShortcuts(true)} className="text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">
             All Shortcuts (?)
           </button>
         </div>
@@ -401,9 +402,9 @@ export default function InstructorSessionPage() {
       {/* Keyboard shortcuts overlay */}
       {showShortcuts && (
         <div className="fixed inset-0 z-40 flex items-center justify-center" onClick={() => setShowShortcuts(false)}>
-          <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-xs" />
-          <div className="relative bg-slate-900 border border-slate-800 rounded-xl p-6 max-w-xs animate-scale-in">
-            <h3 className="font-semibold text-white mb-4 text-sm tracking-tight">Studio Keyboard Shortcuts</h3>
+          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-xs" />
+          <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 max-w-xs animate-scale-in shadow-xl">
+            <h3 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm tracking-tight">Studio Keyboard Shortcuts</h3>
             <div className="space-y-2 text-xs">
               {[
                 ['Q', 'Open Quick Pulse'],
@@ -415,10 +416,10 @@ export default function InstructorSessionPage() {
                 ['Esc', 'Close modal/palette'],
               ].map(([key, desc]) => (
                 <div key={key} className="flex items-center gap-3">
-                  <kbd className="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded font-mono text-slate-300 min-w-[36px] text-center">
+                  <kbd className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded font-mono text-slate-700 dark:text-slate-300 min-w-[36px] text-center">
                     {key}
                   </kbd>
-                  <span className="text-slate-400">{desc}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{desc}</span>
                 </div>
               ))}
             </div>

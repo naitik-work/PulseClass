@@ -2,7 +2,7 @@ import Button from './Button';
 import Modal from './Modal';
 
 /**
- * Confirmation dialog built on top of Modal.
+ * Confirmation dialog built on top of Modal with theme support.
  */
 export default function ConfirmDialog({
   isOpen,
@@ -16,7 +16,7 @@ export default function ConfirmDialog({
 }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
-      {message && <p className="text-sm text-gray-600 mb-6">{message}</p>}
+      {message && <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">{message}</p>}
       <div className="flex justify-end gap-3">
         <Button variant="secondary" onClick={onClose} disabled={loading}>
           Cancel

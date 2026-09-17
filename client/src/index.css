@@ -1,23 +1,95 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
-    --bg-app: #f8fafc;
-    --bg-surface: #ffffff;
-    --bg-surface-subtle: #f1f5f9;
-    --border-subtle: #e2e8f0;
+    /* Semantic Design Tokens - Light Theme */
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --surface: #ffffff;
+    --surface-elevated: #ffffff;
+    --surface-muted: #f1f5f9;
+    --surface-subtle: #f8fafc;
+
+    --border: #e2e8f0;
     --border-strong: #cbd5e1;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-tertiary: #94a3b8;
-    --brand-primary: #4f46e5;
-    --brand-primary-hover: #4338ca;
-    --brand-primary-soft: #eef2ff;
+
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-soft: #eef2ff;
+
     --success: #10b981;
     --success-soft: #ecfdf5;
+
+    --warning: #f59e0b;
+    --warning-soft: #fffbeb;
+
     --danger: #ef4444;
     --danger-soft: #fef2f2;
-    --warning: #f59e0b;
+
+    --muted: #64748b;
+    --muted-foreground: #94a3b8;
+
+    --input: #ffffff;
+    --ring: rgba(79, 70, 229, 0.2);
+
+    /* Legacy Token Aliases */
+    --bg-app: var(--background);
+    --bg-surface: var(--surface);
+    --bg-surface-subtle: var(--surface-subtle);
+    --border-subtle: var(--border);
+    --text-primary: var(--foreground);
+    --text-secondary: var(--muted);
+    --text-tertiary: var(--muted-foreground);
+    --brand-primary: var(--primary);
+    --brand-primary-hover: var(--primary-hover);
+    --brand-primary-soft: var(--primary-soft);
+  }
+
+  :root.dark,
+  [data-theme='dark'] {
+    /* Semantic Design Tokens - Dark Theme */
+    --background: #090d16;
+    --foreground: #f8fafc;
+    --surface: #111827;
+    --surface-elevated: #1a2234;
+    --surface-muted: #1e293b;
+    --surface-subtle: #151d2c;
+
+    --border: #1e293b;
+    --border-strong: #334155;
+
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --primary-soft: rgba(99, 102, 241, 0.15);
+
+    --success: #34d399;
+    --success-soft: rgba(16, 185, 129, 0.15);
+
+    --warning: #fbbf24;
+    --warning-soft: rgba(245, 158, 11, 0.15);
+
+    --danger: #f87171;
+    --danger-soft: rgba(239, 68, 68, 0.15);
+
+    --muted: #94a3b8;
+    --muted-foreground: #64748b;
+
+    --input: #0f172a;
+    --ring: rgba(99, 102, 241, 0.35);
+
+    /* Legacy Token Aliases */
+    --bg-app: var(--background);
+    --bg-surface: var(--surface);
+    --bg-surface-subtle: var(--surface-subtle);
+    --border-subtle: var(--border);
+    --text-primary: var(--foreground);
+    --text-secondary: var(--muted);
+    --text-tertiary: var(--muted-foreground);
+    --brand-primary: var(--primary);
+    --brand-primary-hover: var(--primary-hover);
+    --brand-primary-soft: var(--primary-soft);
   }
 
   *,
@@ -35,8 +107,8 @@
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    color: var(--text-primary);
-    background-color: var(--bg-app);
+    color: var(--foreground);
+    background-color: var(--background);
     min-height: 100vh;
     letter-spacing: -0.011em;
   }
@@ -54,8 +126,32 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--brand-primary);
+    outline: 2px solid var(--primary);
     outline-offset: 2px;
+  }
+}
+
+/* Subtle theme transition */
+html.theme-ready,
+html.theme-ready body,
+html.theme-ready nav,
+html.theme-ready main,
+html.theme-ready .theme-transition {
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html.theme-ready,
+  html.theme-ready body,
+  html.theme-ready nav,
+  html.theme-ready main,
+  html.theme-ready .theme-transition,
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -120,11 +216,12 @@
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
+.dark .glass-panel,
 .glass-panel-dark {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(17, 24, 39, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Toast container */

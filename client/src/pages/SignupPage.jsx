@@ -36,17 +36,17 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-60px)] flex items-center justify-center px-4 py-12 bg-slate-50/60">
+    <div className="min-h-[calc(100vh-60px)] flex items-center justify-center px-4 py-12 bg-slate-50/60 dark:bg-[#090d16] theme-transition">
       <div className="w-full max-w-sm animate-fade-in">
         {/* Card */}
-        <div className="bg-white rounded-xl p-7 sm:p-8 border border-slate-200/90 shadow-xs">
+        <div className="bg-white dark:bg-[#111827] rounded-xl p-7 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-xs dark:shadow-xl">
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 text-white font-bold text-base shadow-2xs">
+            <div className="w-9 h-9 bg-indigo-600 dark:bg-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-3 text-white font-bold text-base shadow-2xs">
               P
             </div>
-            <h1 className="text-xl font-bold text-slate-900 tracking-tight">Create your account</h1>
-            <p className="text-xs text-slate-500 mt-1">Get started with real-time classroom engagement</p>
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Create your account</h1>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Get started with real-time classroom engagement</p>
           </div>
 
           {/* Form */}
@@ -92,7 +92,7 @@ export default function SignupPage() {
 
             {/* Role selector */}
             <div className="flex flex-col gap-1 text-left">
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-700">Account Role</label>
+              <label className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">Account Role</label>
               <div className="grid grid-cols-2 gap-2.5">
                 {[
                   { value: 'student', label: 'Student', sub: 'Join & Vote' },
@@ -104,19 +104,19 @@ export default function SignupPage() {
                     onClick={() => setForm({ ...form, role: option.value })}
                     className={`flex flex-col items-start p-2.5 rounded-lg border text-left transition-all cursor-pointer ${
                       form.role === option.value
-                        ? 'border-indigo-600 bg-indigo-50/70 shadow-2xs'
-                        : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                        ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/60 shadow-2xs'
+                        : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <span className="font-bold text-slate-900 text-xs tracking-tight">{option.label}</span>
-                    <span className="text-[11px] text-slate-500 font-normal">{option.sub}</span>
+                    <span className="font-bold text-slate-900 dark:text-white text-xs tracking-tight">{option.label}</span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-normal">{option.sub}</span>
                   </button>
                 ))}
               </div>
             </div>
 
             {errors.general && (
-              <div className="p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-xs font-medium text-rose-600 text-center">
+              <div className="p-2.5 rounded-lg bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 text-xs font-medium text-rose-600 dark:text-rose-300 text-center">
                 {errors.general}
               </div>
             )}
@@ -126,9 +126,9 @@ export default function SignupPage() {
             </Button>
           </form>
 
-          <p className="text-center text-xs text-slate-500 mt-5">
+          <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-5">
             Already have an account?{' '}
-            <Link to="/login" className="text-indigo-600 font-semibold hover:text-indigo-700">
+            <Link to="/login" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-700 dark:hover:text-indigo-300">
               Sign in
             </Link>
           </p>

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
 import { ToastProvider } from './context/ToastContext';
+import { ThemeProvider } from './context/ThemeContext';
 import AppLayout from './layouts/AppLayout';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
@@ -23,10 +24,11 @@ function PublicOnlyRoute({ children }) {
 export default function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <SocketProvider>
-          <ToastProvider>
-            <Routes>
+      <ThemeProvider>
+        <AuthProvider>
+          <SocketProvider>
+            <ToastProvider>
+              <Routes>
               {/* Standalone Live Session view (full screen, immersive) */}
               <Route
                 path="/session/:id"
@@ -94,6 +96,7 @@ export default function App() {
           </ToastProvider>
         </SocketProvider>
       </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

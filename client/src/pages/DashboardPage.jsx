@@ -85,17 +85,17 @@ export default function DashboardPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200/80 dark:border-slate-800">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
               Welcome back, {user?.name?.split(' ')[0]}
             </h1>
-            <span className="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200/60">
+            <span className="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60">
               {user?.role}
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             {isInstructor
               ? 'Manage your institutes, configure classrooms, and host live engagement sessions.'
               : 'Access your enrolled institutes, explore classrooms, and participate in active pulses.'}
@@ -121,24 +121,24 @@ export default function DashboardPage() {
 
       {/* Overview Stats Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 mb-8">
-        <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Affiliated Institutes</span>
-          <p className="text-2xl font-bold text-slate-900 mt-1 tracking-tight">{institutes.length}</p>
+        <div className="p-4 rounded-xl bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-2xs dark:shadow-none">
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Affiliated Institutes</span>
+          <p className="text-2xl font-bold text-slate-900 dark:text-white mt-1 tracking-tight">{institutes.length}</p>
         </div>
-        <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Account Privilege</span>
-          <p className="text-2xl font-bold text-slate-900 mt-1 capitalize tracking-tight">{user?.role}</p>
+        <div className="p-4 rounded-xl bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-2xs dark:shadow-none">
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Account Privilege</span>
+          <p className="text-2xl font-bold text-slate-900 dark:text-white mt-1 capitalize tracking-tight">{user?.role}</p>
         </div>
-        <div className="hidden sm:block p-4 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Session Readiness</span>
-          <p className="text-2xl font-bold text-emerald-600 mt-1 tracking-tight">Active</p>
+        <div className="hidden sm:block p-4 rounded-xl bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-2xs dark:shadow-none">
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Session Readiness</span>
+          <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1 tracking-tight">Active</p>
         </div>
       </div>
 
       {/* Institutes Section */}
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-slate-600">Your Institutes</h2>
-        <span className="text-xs text-slate-400">{institutes.length} total</span>
+        <h2 className="text-sm font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Your Institutes</h2>
+        <span className="text-xs text-slate-400 dark:text-slate-500">{institutes.length} total</span>
       </div>
 
       {institutes.length === 0 ? (
@@ -163,10 +163,10 @@ export default function DashboardPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {institutes.map((inst) => (
             <Link key={inst._id} to={`/institutes/${inst._id}`} className="group">
-              <Card interactive className="h-full flex flex-col justify-between p-5 border-slate-200/80 hover:border-indigo-300">
+              <Card interactive className="h-full flex flex-col justify-between p-5 border-slate-200/80 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500/50">
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                    <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
@@ -181,17 +181,17 @@ export default function DashboardPage() {
                       </Badge>
                     </button>
                   </div>
-                  <h3 className="font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors text-base tracking-tight">
+                  <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-base tracking-tight">
                     {inst.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
-                    <svg className="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M7 8a3 3 0 100-6 3 3 0 000 6zM14.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM1.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 017 18a9.953 9.953 0 01-5.385-1.572zM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 00-1.588-3.755 4.502 4.502 0 015.874 2.636.818.818 0 01-.36.98A7.47 7.47 0 0114.5 16z" />
                     </svg>
                     {inst.members?.length || 0} member{inst.members?.length !== 1 ? 's' : ''}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-indigo-600 font-semibold group-hover:text-indigo-700">
+                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-indigo-600 dark:text-indigo-400 font-semibold group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
                   <span>Open Institute</span>
                   <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
