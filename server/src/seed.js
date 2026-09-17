@@ -8,7 +8,7 @@ const Poll = require('./models/Poll');
 const Response = require('./models/Response');
 
 async function seed() {
-  console.log('Connecting to MongoDB at:', env.MONGODB_URI);
+  console.log('Connecting to MongoDB...');
   await mongoose.connect(env.MONGODB_URI);
 
   console.log('Clearing existing data...');
