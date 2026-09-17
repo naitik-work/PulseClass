@@ -21,7 +21,12 @@ export function SocketProvider({ children }) {
 
     // Connect to socket server with tab-isolated token if available, fallback to cookie
     const token = sessionStorage.getItem('token');
-    const socket = io({
+    const rawSocketUrl = (import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL || '')
+      .trim()
+      .replace(/\/+$/, '');
+    const socketServerUrl = rawSocketUrl ? rawSocketUrl.replace(/\/api$/, '') : undefined;
+
+    const socket = io(socketServerUrl, {
       auth: token ? { token } : undefined,
       withCredentials: true,
       reconnection: true,

@@ -21,12 +21,41 @@ const pulseRoutes = require('./routes/pulse.routes');
 const app = express();
 const server = http.createServer(app);
 
+// Trust reverse proxy in production (Render, Cloudflare, etc.) for secure cookies and accurate rate limiting
+if (env.isProduction) {
+  app.set('trust proxy', 1);
+}
+
+// Normalize allowed CORS origins (handles comma-separated origins, trims trailing slashes)
+const allowedOrigins = (env.CLIENT_URL || 'http://localhost:5173')
+  .split(',')
+  .map((url) => url.trim().replace(/\/+$/, ''))
+  .filter(Boolean);
+
+const isOriginAllowed = (origin) => {
+  if (!origin) return true; // Allow non-browser requests (health checks, curl, tools)
+  const normalized = origin.trim().replace(/\/+$/, '');
+  if (allowedOrigins.includes(normalized)) return true;
+  if (!env.isProduction && (normalized.includes('localhost') || normalized.includes('127.0.0.1'))) {
+    return true;
+  }
+  return false;
+};
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (isOriginAllowed(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS policy blocked access from origin: ${origin}`));
+    }
+  },
+  credentials: true,
+};
+
 // Socket.io setup
 const io = new Server(server, {
-  cors: {
-    origin: env.CLIENT_URL,
-    credentials: true,
-  },
+  cors: corsOptions,
 });
 
 // --- Middleware ---
@@ -35,12 +64,7 @@ const io = new Server(server, {
 app.use(helmet());
 
 // CORS
-app.use(
-  cors({
-    origin: env.CLIENT_URL,
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 
 // Rate limiting
 const apiLimiter = rateLimit({
@@ -99,7 +123,7 @@ initializeSocket(io);
 async function startServer() {
   await connectDB();
 
-  server.listen(env.PORT, () => {
+  server.listen(env.PORT, '0.0.0.0', () => {
     console.log(`
 ╔══════════════════════════════════════════╗
 ║         PulseClass Server               ║

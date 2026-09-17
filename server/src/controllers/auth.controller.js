@@ -3,11 +3,11 @@ const User = require('../models/User');
 const ApiError = require('../utils/ApiError');
 const env = require('../config/env');
 
-// Cookie options for JWT token
+// Cookie options for JWT token (SameSite=None; Secure in production for cross-origin hosting)
 const cookieOptions = {
   httpOnly: true,
   secure: env.isProduction,
-  sameSite: env.isProduction ? 'strict' : 'lax',
+  sameSite: env.isProduction ? 'none' : 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   path: '/',
 };
@@ -43,7 +43,7 @@ const signup = async (req, res, next) => {
     });
 
     const token = setTokenCookie(res, user._id);
-
+    console.log("LOGIN SUCCESS - sending response");
     res.status(201).json({
       success: true,
       user: user.toJSON(),
