@@ -76,50 +76,83 @@ export default function InstitutePage() {
 
   const isOwner = institute.owner?._id === user?._id || institute.owner === user?._id;
 
+  const copyCode = () => {
+    if (!institute?.code) return;
+    navigator.clipboard.writeText(institute.code);
+    toast.success(`Copied institute code: ${institute.code}`);
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-        <Link to="/dashboard" className="hover:text-indigo-500">
+      <nav className="flex items-center gap-1.5 text-xs text-slate-500 mb-6 font-medium">
+        <Link to="/dashboard" className="hover:text-indigo-600 transition-colors">
           Dashboard
         </Link>
-        <span>/</span>
-        <span className="text-gray-900">{institute.name}</span>
-      </div>
+        <svg className="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+        </svg>
+        <span className="text-slate-900 truncate max-w-xs">{institute.name}</span>
+      </nav>
 
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200/80">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-semibold text-gray-900">{institute.name}</h1>
-            <Badge variant="primary">{institute.code}</Badge>
+          <div className="flex flex-wrap items-center gap-2.5">
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">{institute.name}</h1>
+            <button
+              onClick={copyCode}
+              title="Click to copy code"
+              className="cursor-pointer group flex items-center gap-1"
+            >
+              <Badge variant="code">
+                {institute.code}
+              </Badge>
+              <span className="text-[11px] text-slate-400 group-hover:text-indigo-600 transition-colors">
+                (Click to copy)
+              </span>
+            </button>
           </div>
-          <p className="text-sm text-gray-500 mt-1">
-            {institute.members?.length || 0} member{institute.members?.length !== 1 ? 's' : ''}
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 flex items-center gap-2">
+            <span>{institute.members?.length || 0} enrolled member{institute.members?.length !== 1 ? 's' : ''}</span>
+            <span>·</span>
+            <span>{classrooms.length} classroom{classrooms.length !== 1 ? 's' : ''}</span>
           </p>
         </div>
         {isOwner && (
           <Button size="sm" onClick={() => setShowCreateModal(true)}>
-            Create Classroom
+            <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 2a.75.75 0 01.75.75v4.5h4.5a.75.75 0 010 1.5h-4.5v4.5a.75.75 0 01-1.5 0v-4.5h-4.5a.75.75 0 010-1.5h4.5v-4.5A.75.75 0 018 2z" />
+            </svg>
+            New Classroom
           </Button>
         )}
       </div>
 
-      {/* Classrooms */}
+      {/* Classrooms Section */}
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-slate-600">Available Classrooms</h2>
+        <span className="text-xs text-slate-400">{classrooms.length} active</span>
+      </div>
+
       {classrooms.length === 0 ? (
         <EmptyState
-          icon="📚"
-          title="No classrooms yet"
+          icon={
+            <svg className="w-6 h-6 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          }
+          title="No classrooms in this institute yet"
           description={
             isOwner
-              ? 'Create your first classroom to start teaching.'
-              : 'No classrooms are available yet. Check back soon.'
+              ? 'Create your first classroom/batch (e.g. "MERN Batch 1", "Algorithms Section A") to begin hosting interactive sessions.'
+              : 'No classrooms have been launched yet by the institute instructor. Check back soon.'
           }
           actionLabel={isOwner ? 'Create Classroom' : undefined}
           onAction={isOwner ? () => setShowCreateModal(true) : undefined}
         />
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {classrooms.map((cls) => {
             const isClassInstructor = (cls.instructor?._id || cls.instructor) === user?._id;
             const isEnrolled = cls.students?.some(
@@ -128,24 +161,27 @@ export default function InstitutePage() {
             const hasActiveSession = cls.activeSession && cls.activeSession.isActive !== false;
 
             return (
-              <Card key={cls._id} className="relative group">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="font-medium text-gray-900">{cls.name}</h3>
-                    <p className="text-xs text-gray-400 mt-0.5">
-                      {cls.instructor?.name || 'Instructor'} · {cls.students?.length || 0} student
-                      {cls.students?.length !== 1 ? 's' : ''}
-                    </p>
+              <Card key={cls._id} className="flex flex-col justify-between p-5 border-slate-200/80">
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="font-semibold text-slate-900 text-base tracking-tight">{cls.name}</h3>
+                    {hasActiveSession && <Badge variant="live">LIVE</Badge>}
                   </div>
-                  {hasActiveSession && <Badge variant="live">🔴 LIVE</Badge>}
+                  <p className="text-xs text-slate-500 flex items-center gap-1.5 mb-4">
+                    <span>{cls.instructor?.name || 'Instructor'}</span>
+                    <span>·</span>
+                    <span>
+                      {cls.students?.length || 0} student{cls.students?.length !== 1 ? 's' : ''}
+                    </span>
+                  </p>
                 </div>
 
-                <div className="flex gap-2 mt-4">
+                <div className="flex flex-col gap-2 pt-3 border-t border-slate-100">
                   {isClassInstructor || isEnrolled ? (
-                    <>
+                    <div className="flex items-center gap-2">
                       <Link to={`/classrooms/${cls._id}`} className="flex-1">
                         <Button variant="secondary" size="sm" className="w-full">
-                          View
+                          Enter Classroom
                         </Button>
                       </Link>
                       {hasActiveSession && (
@@ -153,16 +189,17 @@ export default function InstitutePage() {
                           to={`/session/${cls.activeSession._id || cls.activeSession}`}
                           className="flex-1"
                         >
-                          <Button size="sm" className="w-full">
-                            Join Session
+                          <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-500">
+                            Join Pulse
                           </Button>
                         </Link>
                       )}
-                    </>
+                    </div>
                   ) : (
                     <Button
                       variant="secondary"
                       size="sm"
+                      className="w-full"
                       onClick={() => handleJoinClassroom(cls._id)}
                     >
                       Join Classroom

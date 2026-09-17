@@ -36,21 +36,21 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 py-12 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,102,241,0.08),rgba(255,255,255,0))]">
-      <div className="w-full max-w-md animate-fade-in-up">
+    <div className="min-h-[calc(100vh-60px)] flex items-center justify-center px-4 py-12 bg-slate-50/60">
+      <div className="w-full max-w-sm animate-fade-in">
         {/* Card */}
-        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-xl shadow-slate-200/50">
+        <div className="bg-white rounded-xl p-7 sm:p-8 border border-slate-200/90 shadow-xs">
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="w-12 h-12 bg-gradient-to-tr from-indigo-600 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md shadow-indigo-500/25">
-              <span className="text-white text-xl font-black">P</span>
+          <div className="text-center mb-6">
+            <div className="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3 text-white font-bold text-base shadow-2xs">
+              P
             </div>
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Create your account</h1>
-            <p className="text-sm text-slate-500 mt-1.5">Get started with real-time classroom engagement</p>
+            <h1 className="text-xl font-bold text-slate-900 tracking-tight">Create your account</h1>
+            <p className="text-xs text-slate-500 mt-1">Get started with real-time classroom engagement</p>
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3.5">
             <Input
               id="name"
               name="name"
@@ -68,7 +68,7 @@ export default function SignupPage() {
               name="email"
               type="email"
               label="Email Address"
-              placeholder="you@example.com"
+              placeholder="name@institution.edu"
               value={form.email}
               onChange={handleChange}
               error={errors.email}
@@ -91,45 +91,42 @@ export default function SignupPage() {
             />
 
             {/* Role selector */}
-            <div className="flex flex-col gap-1.5 text-left">
-              <label className="text-sm font-semibold text-slate-700">Account Type</label>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="flex flex-col gap-1 text-left">
+              <label className="text-xs font-semibold uppercase tracking-wider text-slate-700">Account Role</label>
+              <div className="grid grid-cols-2 gap-2.5">
                 {[
-                  { value: 'student', label: 'Student', icon: '🎓', sub: 'Join & Vote' },
-                  { value: 'instructor', label: 'Instructor', icon: '👨‍🏫', sub: 'Create & Teach' },
+                  { value: 'student', label: 'Student', sub: 'Join & Vote' },
+                  { value: 'instructor', label: 'Instructor', sub: 'Create & Poll' },
                 ].map((option) => (
                   <button
                     key={option.value}
                     type="button"
                     onClick={() => setForm({ ...form, role: option.value })}
-                    className={`flex flex-col items-start p-3 rounded-2xl border text-left transition-all cursor-pointer ${
+                    className={`flex flex-col items-start p-2.5 rounded-lg border text-left transition-all cursor-pointer ${
                       form.role === option.value
-                        ? 'border-indigo-600 bg-indigo-50/70 ring-2 ring-indigo-500/20'
+                        ? 'border-indigo-600 bg-indigo-50/70 shadow-2xs'
                         : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
                     }`}
                   >
-                    <div className="flex items-center gap-1.5 text-base mb-1">
-                      <span>{option.icon}</span>
-                      <span className="font-bold text-slate-900 text-sm">{option.label}</span>
-                    </div>
-                    <span className="text-xs text-slate-500 font-normal">{option.sub}</span>
+                    <span className="font-bold text-slate-900 text-xs tracking-tight">{option.label}</span>
+                    <span className="text-[11px] text-slate-500 font-normal">{option.sub}</span>
                   </button>
                 ))}
               </div>
             </div>
 
             {errors.general && (
-              <div className="p-3 rounded-xl bg-rose-50 border border-rose-100 text-xs font-medium text-rose-600 text-center">
+              <div className="p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-xs font-medium text-rose-600 text-center">
                 {errors.general}
               </div>
             )}
 
-            <Button type="submit" size="lg" className="w-full mt-2 shadow-lg shadow-indigo-600/25" loading={loading}>
+            <Button type="submit" size="md" className="w-full mt-2" loading={loading}>
               Create Account
             </Button>
           </form>
 
-          <p className="text-center text-sm text-slate-500 mt-6">
+          <p className="text-center text-xs text-slate-500 mt-5">
             Already have an account?{' '}
             <Link to="/login" className="text-indigo-600 font-semibold hover:text-indigo-700">
               Sign in

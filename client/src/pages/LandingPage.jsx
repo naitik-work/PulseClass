@@ -121,132 +121,134 @@ export default function LandingPage() {
   return (
     <div className="bg-white text-slate-900 selection:bg-indigo-500 selection:text-white">
       {/* Hero Section */}
-      <section className="relative pt-16 pb-20 sm:pt-24 sm:pb-32 overflow-hidden bg-[radial-gradient(ellipse_80%_60%_at_50%_-15%,rgba(99,102,241,0.12),rgba(255,255,255,0))]">
+      <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-28 overflow-hidden bg-slate-50/50 border-b border-slate-200/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100/80 text-indigo-700 text-xs sm:text-sm font-semibold mb-8 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-ping" />
-            <span className="w-2 h-2 rounded-full bg-indigo-600 -ml-4" />
-            <span>Instant Classroom Engagement Platform</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 ring-2 ring-indigo-600/20" />
+            <span>Instant Classroom Engagement for Higher-Ed & Bootcamps</span>
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-950 tracking-tight leading-[1.1] mb-6">
-            Know what your room
-            <br />
-            <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 bg-clip-text text-transparent">
-              is really thinking.
-            </span>
+          <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5 max-w-4xl mx-auto">
+            Know what your classroom is thinking,{' '}
+            <span className="text-indigo-600">in real time.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Ask instant questions and receive 100% anonymous feedback from your entire lecture hall in under 10 seconds.
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+            Ask check-in questions and collect 100% anonymous feedback from your entire room in under 10 seconds.
             Zero awkward silences. No app downloads. Keyboard-first.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14">
             <Link to="/signup" className="w-full sm:w-auto">
-              <Button size="xl" className="w-full sm:w-auto shadow-xl shadow-indigo-600/30">
-                Start a Session Free →
+              <Button size="lg" className="w-full sm:w-auto">
+                Get Started Free
+                <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                </svg>
               </Button>
             </Link>
             <a href="#how-it-works" className="w-full sm:w-auto">
-              <Button variant="secondary" size="xl" className="w-full sm:w-auto">
-                See How It Works
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                Explore Workflow
               </Button>
             </a>
           </div>
 
           {/* Interactive Hero Demo Preview */}
-          <div className="max-w-xl mx-auto">
-            <div className="rounded-3xl p-1 bg-gradient-to-b from-indigo-500/30 via-slate-800/40 to-slate-900 shadow-2xl">
-              <div className="bg-slate-950 rounded-[22px] p-6 sm:p-8 text-left border border-slate-800/80 shadow-2xl relative overflow-hidden">
-                {/* Window header */}
-                <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="ml-2 text-xs font-mono text-slate-400">CS101 · Live Session</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    LIVE PULSE
-                  </div>
+          <div className="max-w-xl mx-auto text-left">
+            <div className="rounded-2xl bg-slate-950 p-5 sm:p-7 border border-slate-800 shadow-xl relative overflow-hidden">
+              {/* Window header */}
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-5">
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  <span className="ml-2 text-xs font-mono text-slate-400">CS101 · Interactive Live Studio</span>
                 </div>
+                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-950/80 border border-rose-800/60 text-rose-300 text-[10px] font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
+                  LIVE DEMO
+                </div>
+              </div>
 
-                {/* Pulse Content */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between text-xs text-slate-400 mb-2 font-medium">
-                    <span className="uppercase tracking-wider text-indigo-400 font-semibold">💡 Understanding Check</span>
-                    <span className="font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded">⏱️ 8s remaining</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                    Should I move ahead to Raft consensus?
-                  </h3>
-                  <p className="text-xs text-slate-400">Try voting below to see real-time distribution update:</p>
+              {/* Pulse Content */}
+              <div className="mb-5">
+                <div className="flex items-center justify-between text-xs text-slate-400 mb-1.5 font-medium">
+                  <span className="uppercase tracking-wider text-indigo-400 font-semibold text-[10px]">💡 Comprehension Check</span>
+                  <span className="font-mono text-slate-400 bg-slate-900 px-2 py-0.5 rounded text-[11px]">8s window</span>
                 </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-1 tracking-tight">
+                  Should I move ahead to Raft consensus algorithms?
+                </h3>
+                <p className="text-xs text-slate-400">Vote below to see real-time streaming aggregation:</p>
+              </div>
 
-                {/* Vote Buttons (Interactive Demo) */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  <button
-                    onClick={() => handleDemoVote('Yes')}
-                    className={`py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                      demoAnswer === 'Yes'
-                        ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 scale-[1.02]'
-                        : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
-                    }`}
-                  >
-                    <span>👍 Yes</span>
-                    <span className="text-xs opacity-75 font-mono">({demoVotes.Yes})</span>
-                  </button>
-                  <button
-                    onClick={() => handleDemoVote('No')}
-                    className={`py-3 px-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                      demoAnswer === 'No'
-                        ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/30 scale-[1.02]'
-                        : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
-                    }`}
-                  >
-                    <span>✋ Need Recap</span>
-                    <span className="text-xs opacity-75 font-mono">({demoVotes.No})</span>
-                  </button>
-                </div>
+              {/* Vote Buttons (Interactive Demo) */}
+              <div className="grid grid-cols-2 gap-2.5 mb-5">
+                <button
+                  onClick={() => handleDemoVote('Yes')}
+                  className={`py-2.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    demoAnswer === 'Yes'
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
+                  }`}
+                >
+                  <span>Yes (Move ahead)</span>
+                  <span className="font-mono opacity-80">({demoVotes.Yes})</span>
+                </button>
+                <button
+                  onClick={() => handleDemoVote('No')}
+                  className={`py-2.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    demoAnswer === 'No'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
+                  }`}
+                >
+                  <span>Need Recap</span>
+                  <span className="font-mono opacity-80">({demoVotes.No})</span>
+                </button>
+              </div>
 
-                {/* Live Distribution Bars */}
-                <div className="space-y-3 bg-slate-900/60 p-4 rounded-xl border border-slate-800/60">
-                  <div>
-                    <div className="flex justify-between text-xs text-slate-300 mb-1 font-semibold">
-                      <span>Yes (Move ahead)</span>
-                      <span>{yesPct}% ({demoVotes.Yes})</span>
-                    </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-indigo-500 to-emerald-400 rounded-full transition-all duration-500"
-                        style={{ width: `${yesPct}%` }}
-                      />
-                    </div>
+              {/* Live Distribution Bars */}
+              <div className="space-y-2.5 bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+                <div>
+                  <div className="flex justify-between text-xs text-slate-300 mb-1 font-semibold">
+                    <span>Yes (Ready to advance)</span>
+                    <span className="font-mono text-emerald-400">{yesPct}% ({demoVotes.Yes})</span>
                   </div>
-                  <div>
-                    <div className="flex justify-between text-xs text-slate-300 mb-1 font-semibold">
-                      <span>No (Need recap)</span>
-                      <span>{noPct}% ({demoVotes.No})</span>
-                    </div>
-                    <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-slate-600 rounded-full transition-all duration-500"
-                        style={{ width: `${noPct}%` }}
-                      />
-                    </div>
+                  <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500 rounded-full transition-all duration-300"
+                      style={{ width: `${yesPct}%` }}
+                    />
                   </div>
                 </div>
-
-                <div className="flex items-center justify-between text-[11px] text-slate-500 mt-4 pt-3 border-t border-slate-800/80 font-medium">
-                  <span>👥 {totalVotes} student responses</span>
-                  <span>🔒 100% Anonymous to Instructor</span>
+                <div>
+                  <div className="flex justify-between text-xs text-slate-300 mb-1 font-semibold">
+                    <span>No (Spend 5 mins recapping)</span>
+                    <span className="font-mono text-slate-400">{noPct}% ({demoVotes.No})</span>
+                  </div>
+                  <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-slate-600 rounded-full transition-all duration-300"
+                      style={{ width: `${noPct}%` }}
+                    />
+                  </div>
                 </div>
+              </div>
+
+              <div className="flex items-center justify-between text-[11px] text-slate-500 mt-4 pt-2.5 border-t border-slate-800/80 font-medium">
+                <span>{totalVotes} total responses collected</span>
+                <span className="text-emerald-400 flex items-center gap-1">
+                  <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+                  </svg>
+                  100% Anonymous
+                </span>
               </div>
             </div>
           </div>
@@ -254,34 +256,34 @@ export default function LandingPage() {
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 bg-slate-50 border-y border-slate-100">
+      <section className="py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-950 mb-4 tracking-tight">
-            The Silent Classroom Problem
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 tracking-tight">
+            The Silent Classroom Dilemma
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-12">
-            Asking <i>"Does everyone understand?"</i> reliably produces dead silence.
-            Hesitant students stay quiet, instructors lose situational awareness, and lectures move ahead disconnected.
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto mb-12">
+            Asking <i>"Does everyone understand?"</i> consistently produces dead silence.
+            Unsure students hesitate to raise hands, instructors lose situational awareness, and classes move ahead disconnected.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-6 text-left">
-            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-rose-100 shadow-sm relative overflow-hidden">
-              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4">
-                ❌
+          <div className="grid sm:grid-cols-2 gap-5 text-left">
+            <div className="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-sm mb-4">
+                ✕
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Without PulseClass</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Awkward 15-second silences. Only 2 confident students speak up. Confused students fall behind. Polling tools require 5 tabs, sharing QR codes, and take 4 minutes to set up.
+              <h3 className="text-base font-bold text-slate-900 mb-2 tracking-tight">Traditional Polling & Asking</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Awkward 15-second silences. Only the top 2 confident students speak. Third-party polling apps take 4 minutes to share QR codes, fragmenting lecture focus.
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-indigo-100 shadow-sm relative overflow-hidden">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
-                ✅
+            <div className="p-6 rounded-xl bg-indigo-50/50 border border-indigo-200/80">
+              <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm mb-4">
+                ✓
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">With PulseClass</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Press <b>Q</b> on keyboard → hit Enter → 100% of the room votes in 8 seconds. Safe, anonymous answers let teachers adjust pacing in real time without breaking momentum.
+              <h3 className="text-base font-bold text-slate-900 mb-2 tracking-tight">With PulseClass Reflex</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Tap <b>Q</b> on keyboard → hit Enter → 100% of the room responds in 8 seconds. Safe anonymous answers let instructors pace lectures with confidence.
               </p>
             </div>
           </div>

@@ -56,7 +56,7 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40 animate-fade-in"
+        className="absolute inset-0 bg-slate-950/40 backdrop-blur-xs animate-fade-in transition-opacity"
         onClick={onClose}
       />
 
@@ -64,26 +64,26 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
       <div
         ref={modalRef}
         tabIndex={-1}
-        className={`relative bg-white rounded-xl shadow-xl w-full ${sizes[size]} animate-scale-in`}
+        className={`relative bg-white rounded-xl shadow-xl border border-slate-200/80 w-full ${sizes[size]} animate-scale-in`}
       >
         {/* Header */}
         {title && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-            <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+          <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+            <h2 className="text-base font-semibold text-slate-900 tracking-tight">{title}</h2>
             <button
               onClick={onClose}
-              className="p-1 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
               aria-label="Close"
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
               </svg>
             </button>
           </div>
         )}
 
         {/* Body */}
-        <div className="px-6 py-4">{children}</div>
+        <div className="p-6">{children}</div>
       </div>
     </div>
   );

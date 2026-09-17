@@ -117,92 +117,113 @@ export default function CommandPalette({
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh]">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/30" onClick={onClose} />
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-xs" onClick={onClose} />
 
       {/* Palette */}
-      <div className="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden animate-scale-in">
-        {/* Header */}
-        <div className="px-4 py-3 border-b border-gray-100">
-          <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
-            <span className="font-medium text-indigo-500">Quick Pulse</span>
-            <span>·</span>
-            <span>Type to search, ↑↓ to navigate, Enter to launch</span>
-          </div>
+      <div className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden animate-scale-in">
+        {/* Header & Search */}
+        <div className="px-4 py-3 border-b border-slate-100 flex items-center gap-3">
+          <svg className="w-5 h-5 text-slate-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
+          </svg>
           <input
             ref={inputRef}
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search questions..."
-            className="w-full text-sm bg-transparent outline-none text-gray-900 placeholder-gray-400"
+            placeholder="Type a question or press 1-9 to launch directly..."
+            className="w-full text-sm font-medium bg-transparent outline-none text-slate-900 placeholder-slate-400 py-1"
             autoComplete="off"
           />
+          <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200/80 text-[10px] font-mono text-slate-500 uppercase">
+            ESC
+          </kbd>
         </div>
 
         {/* Category filter */}
         {categories && categories.length > 0 && (
-          <div className="flex gap-1 px-4 py-2 border-b border-gray-50 overflow-x-auto">
+          <div className="flex items-center gap-1.5 px-4 py-2 bg-slate-50/60 border-b border-slate-100 overflow-x-auto text-xs">
             <button
               onClick={() => setActiveCategory(null)}
-              className={`px-2.5 py-1 text-xs rounded-full whitespace-nowrap transition-colors
-                ${!activeCategory ? 'bg-indigo-50 text-indigo-600 font-medium' : 'text-gray-500 hover:bg-gray-100'}
-              `}
+              className={`px-2.5 py-1 rounded-md whitespace-nowrap transition-colors font-medium cursor-pointer ${
+                !activeCategory ? 'bg-indigo-600 text-white shadow-2xs' : 'text-slate-600 hover:bg-slate-200/60'
+              }`}
             >
-              All
+              All Checkpoints
             </button>
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id === activeCategory ? null : cat.id)}
-                className={`px-2.5 py-1 text-xs rounded-full whitespace-nowrap transition-colors
-                  ${activeCategory === cat.id ? 'bg-indigo-50 text-indigo-600 font-medium' : 'text-gray-500 hover:bg-gray-100'}
-                `}
+                className={`px-2.5 py-1 rounded-md whitespace-nowrap transition-colors font-medium cursor-pointer ${
+                  activeCategory === cat.id ? 'bg-indigo-600 text-white shadow-2xs' : 'text-slate-600 hover:bg-slate-200/60'
+                }`}
               >
-                {cat.icon} {cat.label}
+                {cat.label}
               </button>
             ))}
           </div>
         )}
 
-        {/* Results */}
-        <div ref={listRef} className="max-h-64 overflow-y-auto" role="listbox">
+        {/* Results list */}
+        <div ref={listRef} className="max-h-72 overflow-y-auto divide-y divide-slate-50 p-1" role="listbox">
           {filtered.length === 0 ? (
-            <div className="px-4 py-8 text-center text-sm text-gray-400">
-              No matching questions found
+            <div className="px-4 py-10 text-center text-xs text-slate-400">
+              No matching pulse templates found
             </div>
           ) : (
-            filtered.map((template, index) => (
-              <button
-                key={template.id}
-                role="option"
-                aria-selected={index === selectedIndex}
-                onClick={() => onSelectTemplate(template)}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm transition-colors
-                  ${index === selectedIndex ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-50'}
-                `}
-              >
-                <span className="w-5 h-5 flex items-center justify-center text-xs text-gray-400 font-mono bg-gray-100 rounded">
-                  {index < 9 ? index + 1 : '·'}
-                </span>
-                <span className="flex-1">{template.question}</span>
-                <span className="text-xs text-gray-400 capitalize">{template.category}</span>
-              </button>
-            ))
+            filtered.map((template, index) => {
+              const isSelected = index === selectedIndex;
+              return (
+                <button
+                  key={template.id}
+                  role="option"
+                  aria-selected={isSelected}
+                  onClick={() => onSelectTemplate(template)}
+                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 text-left text-sm rounded-lg transition-colors cursor-pointer ${
+                    isSelected
+                      ? 'bg-indigo-50/80 text-indigo-950 font-semibold'
+                      : 'text-slate-700 hover:bg-slate-50 font-medium'
+                  }`}
+                >
+                  <span className={`w-5 h-5 flex items-center justify-center text-xs font-mono rounded shrink-0 ${
+                    isSelected
+                      ? 'bg-indigo-600 text-white font-bold'
+                      : 'bg-slate-100 text-slate-500'
+                  }`}>
+                    {index < 9 ? index + 1 : '·'}
+                  </span>
+                  <span className="flex-1 tracking-tight truncate">{template.question}</span>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                      {template.category}
+                    </span>
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 text-slate-600 uppercase border border-slate-200/60">
+                      {template.responseType}
+                    </span>
+                  </div>
+                </button>
+              );
+            })
           )}
         </div>
 
-        {/* Footer */}
-        <div className="px-4 py-2.5 border-t border-gray-100 flex items-center justify-between">
+        {/* Footer shortcuts */}
+        <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
           <button
             onClick={onCreateCustom}
-            className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-500 transition-colors"
+            className="flex items-center gap-1.5 font-medium text-slate-700 hover:text-indigo-600 transition-colors cursor-pointer"
           >
-            <span className="w-5 h-5 flex items-center justify-center text-xs font-mono bg-gray-100 rounded">
+            <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-200 font-mono text-[10px] text-slate-600 font-semibold">
               C
-            </span>
+            </kbd>
             <span>Create custom pulse</span>
           </button>
-          <span className="text-xs text-gray-300">Esc to close</span>
+          <div className="flex items-center gap-3 text-[11px] text-slate-400">
+            <span><kbd className="font-mono bg-white px-1 py-0.5 rounded border border-slate-200 text-slate-500">↑↓</kbd> navigate</span>
+            <span><kbd className="font-mono bg-white px-1 py-0.5 rounded border border-slate-200 text-slate-500">↵</kbd> launch</span>
+          </div>
         </div>
       </div>
     </div>
