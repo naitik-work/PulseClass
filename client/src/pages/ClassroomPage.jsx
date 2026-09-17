@@ -95,30 +95,30 @@ export default function ClassroomPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6 font-medium">
-        <Link to="/dashboard" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+      <nav className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-[#94A3B8] mb-6 font-medium">
+        <Link to="/dashboard" className="hover:text-[#22D3EE] transition-colors">
           Dashboard
         </Link>
-        <svg className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+        <svg className="w-3.5 h-3.5 text-slate-400 dark:text-[#64748B]" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
         </svg>
-        <Link to={`/institutes/${classroom.institute?._id || classroom.institute}`} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors truncate max-w-[150px]">
+        <Link to={`/institutes/${classroom.institute?._id || classroom.institute}`} className="hover:text-[#22D3EE] transition-colors truncate max-w-[150px]">
           {classroom.institute?.name || 'Institute'}
         </Link>
-        <svg className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+        <svg className="w-3.5 h-3.5 text-slate-400 dark:text-[#64748B]" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
         </svg>
         <span className="text-slate-900 dark:text-white truncate max-w-xs">{classroom.name}</span>
       </nav>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200/80 dark:border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200/80 dark:border-[#1E293B]">
         <div>
           <div className="flex items-center gap-2.5">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">{classroom.name}</h1>
             {hasActiveSession && <Badge variant="live">LIVE</Badge>}
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-2">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-[#94A3B8] mt-1 flex items-center gap-2">
             <span>Instructor: {classroom.instructor?.name || 'Instructor'}</span>
             <span>·</span>
             <span>{classroom.students?.length || 0} enrolled student{classroom.students?.length !== 1 ? 's' : ''}</span>
@@ -148,14 +148,14 @@ export default function ClassroomPage() {
       {/* Session History */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Past & Active Sessions</h2>
-          <span className="text-xs text-slate-400 dark:text-slate-500">{sessions.length} recorded</span>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-slate-600 dark:text-[#94A3B8]">Past & Active Sessions</h2>
+          <span className="text-xs text-slate-400 dark:text-[#64748B]">{sessions.length} recorded</span>
         </div>
 
         {sessions.length === 0 ? (
           <EmptyState
             icon={
-              <svg className="w-6 h-6 text-slate-500 dark:text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="w-6 h-6 text-slate-500 dark:text-[#94A3B8]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             }
@@ -169,7 +169,7 @@ export default function ClassroomPage() {
             onAction={isClassInstructor ? handleStartSession : undefined}
           />
         ) : (
-          <div className="divide-y divide-slate-100 dark:divide-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-[#111827] overflow-hidden shadow-2xs">
+          <div className="divide-y divide-slate-100 dark:divide-[#1E293B] rounded-2xl border border-slate-200/80 dark:border-[#1E293B] bg-white dark:bg-[#0F141D] overflow-hidden shadow-2xs dark:shadow-xl">
             {sessions.map((session) => {
               const duration = session.endedAt
                 ? Math.round(
@@ -178,12 +178,12 @@ export default function ClassroomPage() {
                 : null;
 
               return (
-                <div key={session._id} className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition-colors">
+                <div key={session._id} className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/70 dark:hover:bg-[#151C27]/60 transition-colors">
                   <div className="flex items-center gap-3">
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                       session.isActive
-                        ? 'bg-rose-50 dark:bg-rose-950/80 text-rose-600 dark:text-rose-300 border border-rose-200 dark:border-rose-800/60'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                        ? 'bg-[#FB7185]/10 text-[#FB7185] border border-[#FB7185]/30'
+                        : 'bg-slate-100 dark:bg-[#151C27] text-slate-600 dark:text-[#94A3B8] border border-transparent dark:border-[#1E293B]'
                     }`}>
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />

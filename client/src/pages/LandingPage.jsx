@@ -13,7 +13,7 @@ const FEATURES = [
     icon: '📚',
     title: 'Curated Pulse Library',
     description: '15+ pre-built pedagogical checks like "Should I move ahead?" ready to fire with a single keypress.',
-    color: 'from-indigo-500/20 to-blue-500/20 text-indigo-600 dark:text-indigo-400',
+    color: 'from-cyan-500/20 to-blue-500/20 text-[#22D3EE] dark:text-[#22D3EE]',
   },
   {
     icon: '🔒',
@@ -120,24 +120,24 @@ export default function LandingPage() {
   const noPct = 100 - yesPct;
 
   return (
-    <div className="bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 selection:bg-indigo-500 selection:text-white theme-transition">
+    <div className="bg-[#080B12] text-[#F1F5F9] selection:bg-[#22D3EE] selection:text-[#061018] theme-transition">
       {/* Hero Section */}
-      <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-28 overflow-hidden bg-slate-50/50 dark:bg-[#0c1220]/60 border-b border-slate-200/80 dark:border-slate-800">
+      <section className="relative pt-16 pb-20 sm:pt-20 sm:pb-28 overflow-hidden bg-[#080B12] border-b border-[#1E293B]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/60 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-300 text-xs font-semibold mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 ring-2 ring-indigo-600/20" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#22D3EE]/10 border border-[#22D3EE]/30 text-[#22D3EE] text-xs font-semibold mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] ring-2 ring-[#22D3EE]/25" />
             <span>Instant Classroom Engagement for Higher-Ed & Bootcamps</span>
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-5 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl font-bold text-[#F1F5F9] tracking-tight leading-[1.1] mb-5 max-w-4xl mx-auto">
             Know what your classroom is thinking,{' '}
-            <span className="text-indigo-600 dark:text-indigo-400">in real time.</span>
+            <span className="text-[#22D3EE]">in real time.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-[#94A3B8] max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
             Ask check-in questions and collect 100% anonymous feedback from your entire room in under 10 seconds.
             Zero awkward silences. No app downloads. Keyboard-first.
           </p>
@@ -161,31 +161,31 @@ export default function LandingPage() {
 
           {/* Interactive Hero Demo Preview */}
           <div className="max-w-xl mx-auto text-left">
-            <div className="rounded-2xl bg-[#0f172a] dark:bg-[#111827] p-5 sm:p-7 border border-slate-800 shadow-2xl relative overflow-hidden">
+            <div className="rounded-2xl bg-[#0F141D] p-5 sm:p-7 border border-[#1E293B] shadow-2xl relative overflow-hidden">
               {/* Window header */}
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-5">
+              <div className="flex items-center justify-between border-b border-[#1E293B] pb-3 mb-5">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 text-xs font-mono text-slate-400">CS101 · Interactive Live Studio</span>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FB7185]/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FBBF24]/80" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#34D399]/80" />
+                  <span className="ml-2 text-xs font-mono text-[#94A3B8]">CS101 · Interactive Live Studio</span>
                 </div>
-                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-950/80 border border-rose-800/60 text-rose-300 text-[10px] font-bold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#22D3EE]/10 border border-[#22D3EE]/30 text-[#22D3EE] text-[10px] font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse" />
                   LIVE DEMO
                 </div>
               </div>
 
               {/* Pulse Content */}
               <div className="mb-5">
-                <div className="flex items-center justify-between text-xs text-slate-400 mb-1.5 font-medium">
-                  <span className="uppercase tracking-wider text-indigo-400 font-semibold text-[10px]">💡 Comprehension Check</span>
-                  <span className="font-mono text-slate-400 bg-slate-900 px-2 py-0.5 rounded text-[11px]">8s window</span>
+                <div className="flex items-center justify-between text-xs text-[#94A3B8] mb-1.5 font-medium">
+                  <span className="uppercase tracking-wider text-[#22D3EE] font-semibold text-[10px]">💡 Comprehension Check</span>
+                  <span className="font-mono text-[#94A3B8] bg-[#0B1018] border border-[#1E293B] px-2 py-0.5 rounded text-[11px]">8s window</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-1 tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-[#F1F5F9] mb-1 tracking-tight">
                   Should I move ahead to Raft consensus algorithms?
                 </h3>
-                <p className="text-xs text-slate-400">Vote below to see real-time streaming aggregation:</p>
+                <p className="text-xs text-[#94A3B8]">Vote below to see real-time streaming aggregation:</p>
               </div>
 
               {/* Vote Buttons (Interactive Demo) */}
@@ -194,8 +194,8 @@ export default function LandingPage() {
                   onClick={() => handleDemoVote('Yes')}
                   className={`py-2.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     demoAnswer === 'Yes'
-                      ? 'bg-emerald-600 text-white shadow-xs'
-                      : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
+                      ? 'bg-[#34D399] !text-[#061018] shadow-xs'
+                      : 'bg-[#0B1018] border border-[#1E293B] text-[#F1F5F9] hover:bg-[#151C27]'
                   }`}
                 >
                   <span>Yes (Move ahead)</span>
@@ -205,8 +205,8 @@ export default function LandingPage() {
                   onClick={() => handleDemoVote('No')}
                   className={`py-2.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     demoAnswer === 'No'
-                      ? 'bg-rose-600 text-white shadow-xs'
-                      : 'bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800'
+                      ? 'bg-[#FB7185] !text-[#061018] shadow-xs'
+                      : 'bg-[#0B1018] border border-[#1E293B] text-[#F1F5F9] hover:bg-[#151C27]'
                   }`}
                 >
                   <span>Need Recap</span>
@@ -215,34 +215,34 @@ export default function LandingPage() {
               </div>
 
               {/* Live Distribution Bars */}
-              <div className="space-y-2.5 bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
+              <div className="space-y-2.5 bg-[#0B1018] p-3.5 rounded-xl border border-[#1E293B]">
                 <div>
-                  <div className="flex justify-between text-xs text-slate-300 mb-1 font-semibold">
+                  <div className="flex justify-between text-xs text-[#F1F5F9] mb-1 font-semibold">
                     <span>Yes (Ready to advance)</span>
-                    <span className="font-mono text-emerald-400">{yesPct}% ({demoVotes.Yes})</span>
+                    <span className="font-mono text-[#34D399]">{yesPct}% ({demoVotes.Yes})</span>
                   </div>
-                  <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-2.5 bg-[#151C27] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-emerald-500 rounded-full transition-all duration-300"
+                      className="h-full bg-[#34D399] rounded-full transition-all duration-300"
                       style={{ width: `${yesPct}%` }}
                     />
                   </div>
                 </div>
                 <div>
-                  <div className="flex justify-between text-xs text-slate-300 mb-1 font-semibold">
+                  <div className="flex justify-between text-xs text-[#F1F5F9] mb-1 font-semibold">
                     <span>No (Spend 5 mins recapping)</span>
-                    <span className="font-mono text-slate-400">{noPct}% ({demoVotes.No})</span>
+                    <span className="font-mono text-[#94A3B8]">{noPct}% ({demoVotes.No})</span>
                   </div>
-                  <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-2.5 bg-[#151C27] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-slate-600 rounded-full transition-all duration-300"
+                      className="h-full bg-[#64748B] rounded-full transition-all duration-300"
                       style={{ width: `${noPct}%` }}
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-slate-500 mt-4 pt-2.5 border-t border-slate-800/80 font-medium">
+              <div className="flex items-center justify-between text-[11px] text-[#64748B] mt-4 pt-2.5 border-t border-[#1E293B] font-medium">
                 <span>{totalVotes} total responses collected</span>
                 <span className="text-emerald-400 flex items-center gap-1">
                   <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
@@ -257,33 +257,34 @@ export default function LandingPage() {
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 bg-white dark:bg-[#090d16] border-b border-slate-200/80 dark:border-slate-800">
+      {/* Problem / Solution Section */}
+      <section className="py-20 bg-[#080B12] border-b border-[#1E293B]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#F1F5F9] mb-3 tracking-tight">
             The Silent Classroom Dilemma
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto mb-12">
+          <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl mx-auto mb-12">
             Asking <i>"Does everyone understand?"</i> consistently produces dead silence.
             Unsure students hesitate to raise hands, instructors lose situational awareness, and classes move ahead disconnected.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-5 text-left">
-            <div className="p-6 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 flex items-center justify-center font-bold text-sm mb-4">
+            <div className="p-6 rounded-2xl bg-[#0F141D] border border-[#1E293B]">
+              <div className="w-8 h-8 rounded-lg bg-[#FB7185]/15 text-[#FB7185] flex items-center justify-center font-bold text-sm mb-4">
                 ✕
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Traditional Polling & Asking</h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <h3 className="text-base font-bold text-[#F1F5F9] mb-2 tracking-tight">Traditional Polling & Asking</h3>
+              <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
                 Awkward 15-second silences. Only the top 2 confident students speak. Third-party polling apps take 4 minutes to share QR codes, fragmenting lecture focus.
               </p>
             </div>
 
-            <div className="p-6 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-800/60">
-              <div className="w-8 h-8 rounded-lg bg-indigo-600 dark:bg-indigo-500 text-white flex items-center justify-center font-bold text-sm mb-4">
+            <div className="p-6 rounded-2xl bg-[#0F141D] border border-[#22D3EE]/30">
+              <div className="w-8 h-8 rounded-lg bg-[#22D3EE] text-[#061018] flex items-center justify-center font-bold text-sm mb-4">
                 ✓
               </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 tracking-tight">With PulseClass Reflex</h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <h3 className="text-base font-bold text-[#F1F5F9] mb-2 tracking-tight">With PulseClass Reflex</h3>
+              <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
                 Tap <b>Q</b> on keyboard → hit Enter → 100% of the room responds in 8 seconds. Safe anonymous answers let instructors pace lectures with confidence.
               </p>
             </div>
@@ -292,16 +293,16 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 bg-white dark:bg-[#090d16]">
+      <section id="how-it-works" className="py-24 bg-[#080B12]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151C27] text-[#94A3B8] border border-[#1E293B] text-xs font-semibold mb-3">
               Frictionless Workflow
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F1F5F9] tracking-tight">
               Designed for Velocity
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto mt-2">
+            <p className="text-[#94A3B8] text-base sm:text-lg max-w-xl mx-auto mt-2">
               Teaching flow is sacred. PulseClass takes less than 10 seconds from thought to aggregate answer.
             </p>
           </div>
@@ -310,17 +311,17 @@ export default function LandingPage() {
             {HOW_IT_WORKS.map((item) => (
               <div
                 key={item.step}
-                className="relative p-6 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200/90 dark:border-slate-800 shadow-sm dark:shadow-none hover:shadow-md dark:hover:border-slate-700 transition-all flex flex-col justify-between"
+                className="relative p-6 rounded-2xl bg-[#0F141D] border border-[#1E293B] hover:border-[#334155] transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500">{item.step}</span>
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-900 dark:bg-indigo-600 text-white font-mono text-xs font-bold shadow-sm">
+                    <span className="text-xs font-mono font-bold text-[#64748B]">{item.step}</span>
+                    <span className="px-2.5 py-1 rounded-lg bg-[#151C27] text-[#22D3EE] border border-[#1E293B] font-mono text-xs font-bold shadow-xs">
                       {item.key}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg font-bold text-[#F1F5F9] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#94A3B8] leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -329,13 +330,13 @@ export default function LandingPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-slate-50 dark:bg-[#0c1220]/70 border-t border-slate-100 dark:border-slate-800">
+      <section className="py-24 bg-[#080B12] border-t border-[#1E293B]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F1F5F9] tracking-tight">
               Engineered for Modern Classrooms
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto mt-2">
+            <p className="text-[#94A3B8] text-base sm:text-lg max-w-xl mx-auto mt-2">
               Every detail is calibrated to eliminate latency, friction, and anxiety.
             </p>
           </div>
@@ -344,13 +345,13 @@ export default function LandingPage() {
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-sm dark:shadow-none hover:shadow-xl hover:border-indigo-200 dark:hover:border-indigo-500/40 hover:-translate-y-1 transition-all"
+                className="p-6 sm:p-7 rounded-2xl bg-[#0F141D] border border-[#1E293B] hover:border-[#334155] hover:-translate-y-0.5 transition-all"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-2xl mb-4 shadow-sm`}>
+                <div className="w-12 h-12 rounded-xl bg-[#151C27] border border-[#1E293B] flex items-center justify-center text-2xl mb-4 shadow-xs">
                   {feature.icon}
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{feature.description}</p>
+                <h3 className="text-base sm:text-lg font-bold text-[#F1F5F9] mb-2">{feature.title}</h3>
+                <p className="text-sm text-[#94A3B8] leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -358,13 +359,13 @@ export default function LandingPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="py-24 bg-white dark:bg-[#090d16]">
+      <section className="py-24 bg-[#080B12]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F1F5F9] tracking-tight">
               Wherever People Learn Together
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto mt-2">
+            <p className="text-[#94A3B8] text-base sm:text-lg max-w-xl mx-auto mt-2">
               From coding bootcamps to medical amphitheaters.
             </p>
           </div>
@@ -373,12 +374,12 @@ export default function LandingPage() {
             {USE_CASES.map((uc) => (
               <div
                 key={uc.title}
-                className="p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-50/50 dark:bg-[#111827]/70 hover:bg-white dark:hover:bg-[#111827] hover:shadow-md transition-all flex items-start gap-4"
+                className="p-5 rounded-2xl border border-[#1E293B] bg-[#0F141D] hover:border-[#334155] transition-all flex items-start gap-4"
               >
-                <span className="text-3xl shrink-0 p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-xs border border-slate-100 dark:border-slate-700">{uc.icon}</span>
+                <span className="text-3xl shrink-0 p-1.5 bg-[#151C27] rounded-xl border border-[#1E293B]">{uc.icon}</span>
                 <div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">{uc.title}</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{uc.desc}</p>
+                  <h3 className="text-sm font-bold text-[#F1F5F9] mb-1">{uc.title}</h3>
+                  <p className="text-xs text-[#94A3B8] leading-relaxed">{uc.desc}</p>
                 </div>
               </div>
             ))}
@@ -387,13 +388,13 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ with Interactive Accordion */}
-      <section className="py-24 bg-slate-50 dark:bg-[#0c1220]/70 border-t border-slate-100 dark:border-slate-800">
+      <section className="py-24 bg-[#080B12] border-t border-[#1E293B]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F1F5F9] tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-base max-w-md mx-auto mt-2">
+            <p className="text-[#94A3B8] text-base max-w-md mx-auto mt-2">
               Everything you need to know about anonymous real-time pulses.
             </p>
           </div>
@@ -406,8 +407,8 @@ export default function LandingPage() {
                   key={item.q}
                   className={`rounded-2xl border transition-all overflow-hidden ${
                     isOpen
-                      ? 'bg-white dark:bg-[#111827] border-indigo-300 dark:border-indigo-500/60 shadow-sm'
-                      : 'bg-white/80 dark:bg-[#111827]/60 border-slate-200/80 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                      ? 'bg-[#0F141D] border-[#22D3EE]/40'
+                      : 'bg-[#0F141D] border-[#1E293B] hover:border-[#334155]'
                   }`}
                 >
                   <button
@@ -416,14 +417,14 @@ export default function LandingPage() {
                     className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:outline-none"
                     aria-expanded={isOpen}
                   >
-                    <h3 className="text-base font-semibold text-slate-900 dark:text-white tracking-tight">
+                    <h3 className="text-base font-semibold text-[#F1F5F9] tracking-tight">
                       {item.q}
                     </h3>
                     <div
                       className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                         isOpen
-                          ? 'rotate-180 bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400'
-                          : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
+                          ? 'rotate-180 bg-[#22D3EE]/10 text-[#22D3EE]'
+                          : 'bg-[#151C27] text-[#94A3B8]'
                       }`}
                     >
                       <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
@@ -432,7 +433,7 @@ export default function LandingPage() {
                     </div>
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-3 animate-fade-in">
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-sm text-[#94A3B8] leading-relaxed border-t border-[#1E293B] pt-3 animate-fade-in">
                       {item.a}
                     </div>
                   )}
@@ -444,18 +445,18 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA Banner */}
-      <section className="py-20 bg-white dark:bg-[#090d16]">
+      <section className="py-20 bg-[#080B12]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="rounded-3xl bg-gradient-to-tr from-slate-950 via-indigo-950 to-slate-900 text-white p-10 sm:p-16 text-center relative overflow-hidden shadow-2xl border border-slate-800/80">
+          <div className="rounded-3xl bg-gradient-to-tr from-[#080B12] via-[#0F141D] to-[#151C27] text-white p-10 sm:p-16 text-center relative overflow-hidden shadow-2xl border border-[#1E293B]">
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
+              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-[#F1F5F9]">
                 Transform Your Classroom in 60 Seconds
               </h2>
-              <p className="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+              <p className="text-[#94A3B8] text-base sm:text-lg mb-8 leading-relaxed">
                 Create a free account, start a session, press Q, and never teach to an unresponsive room again.
               </p>
               <Link to="/signup">
-                <Button size="xl" className="shadow-xl shadow-indigo-500/30">
+                <Button size="xl">
                   Get Started — Free
                 </Button>
               </Link>
@@ -465,13 +466,13 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200/80 dark:border-slate-800 py-10 bg-slate-50 dark:bg-[#090d16] text-slate-500 dark:text-slate-400 text-xs transition-colors">
+      <footer className="border-t border-[#1E293B] py-10 bg-[#080B12] text-[#94A3B8] text-xs transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">
+            <div className="w-6 h-6 bg-[#22D3EE] rounded-lg flex items-center justify-center text-[#061018] text-xs font-bold">
               P
             </div>
-            <span className="font-bold text-slate-900 dark:text-white text-sm">PulseClass</span>
+            <span className="font-bold text-[#F1F5F9] text-sm">PulseClass</span>
             <span>— Real-Time Classroom Engagement</span>
           </div>
           <p>© {new Date().getFullYear()} PulseClass. Built for high-velocity educators.</p>

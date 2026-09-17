@@ -40,17 +40,17 @@ export function ToastProvider({ children }) {
         {toasts.map((t) => (
           <div
             key={t.id}
-            className={`animate-slide-in-down flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg text-sm font-medium
-              ${t.type === 'success' ? 'bg-emerald-600 text-white' : ''}
-              ${t.type === 'error' ? 'bg-red-600 text-white' : ''}
-              ${t.type === 'info' ? 'bg-indigo-600 text-white' : ''}
-              ${t.type === 'warning' ? 'bg-amber-500 text-white' : ''}
+            className={`animate-slide-in-down flex items-center gap-3 px-4 py-3 rounded-xl shadow-xl text-sm font-medium border
+              ${t.type === 'success' ? 'bg-[#0F141D] text-[#34D399] border-[#34D399]/30' : ''}
+              ${t.type === 'error' ? 'bg-[#0F141D] text-[#FB7185] border-[#FB7185]/30' : ''}
+              ${t.type === 'info' ? 'bg-[#0F141D] text-[#22D3EE] border-[#22D3EE]/30' : ''}
+              ${t.type === 'warning' ? 'bg-[#0F141D] text-[#FBBF24] border-[#FBBF24]/30' : ''}
             `}
           >
             <span className="flex-1">{t.message}</span>
             <button
               onClick={() => removeToast(t.id)}
-              className="ml-2 opacity-70 hover:opacity-100 transition-opacity text-white"
+              className="ml-2 opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
               aria-label="Dismiss"
             >
               ✕

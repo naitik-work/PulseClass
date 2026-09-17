@@ -85,18 +85,18 @@ export default function InstitutePage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-6 font-medium">
-        <Link to="/dashboard" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+      <nav className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-[#94A3B8] mb-6 font-medium">
+        <Link to="/dashboard" className="hover:text-[#22D3EE] transition-colors">
           Dashboard
         </Link>
-        <svg className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+        <svg className="w-3.5 h-3.5 text-slate-400 dark:text-[#64748B]" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
         </svg>
         <span className="text-slate-900 dark:text-white truncate max-w-xs">{institute.name}</span>
       </nav>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200/80 dark:border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-200/80 dark:border-[#1E293B]">
         <div>
           <div className="flex flex-wrap items-center gap-2.5">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">{institute.name}</h1>
@@ -108,7 +108,7 @@ export default function InstitutePage() {
               <Badge variant="code">
                 {institute.code}
               </Badge>
-              <span className="text-[11px] text-slate-400 dark:text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              <span className="text-[11px] text-slate-400 dark:text-[#64748B] group-hover:text-[#22D3EE] transition-colors">
                 (Click to copy)
               </span>
             </button>

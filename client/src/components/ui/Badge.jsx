@@ -4,19 +4,19 @@
 export default function Badge({ children, variant = 'default', className = '' }) {
   const variants = {
     default:
-      'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700 font-medium',
+      'bg-[#151C27] text-[#94A3B8] border border-[#1E293B] font-medium',
     primary:
-      'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/70 dark:border-indigo-800/60 font-medium',
+      'bg-[#22D3EE]/10 text-[#22D3EE] border border-[#22D3EE]/25 font-medium',
     success:
-      'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/70 dark:border-emerald-800/60 font-medium',
+      'bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/25 font-medium',
     warning:
-      'bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200/70 dark:border-amber-800/60 font-medium',
+      'bg-[#FBBF24]/10 text-[#FBBF24] border border-[#FBBF24]/25 font-medium',
     danger:
-      'bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200/70 dark:border-rose-800/60 font-medium',
+      'bg-[#FB7185]/10 text-[#FB7185] border border-[#FB7185]/25 font-medium',
     code:
-      'bg-slate-100/80 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300/80 dark:border-slate-700 font-mono tracking-wider font-semibold rounded-md px-2 py-0.5 text-xs',
+      'bg-[#0B1018] text-[#22D3EE] border border-[#1E293B] font-mono tracking-wider font-semibold rounded-md px-2 py-0.5 text-xs',
     live:
-      'bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 font-semibold',
+      'bg-[#22D3EE]/10 text-[#22D3EE] border border-[#22D3EE]/30 font-semibold',
   };
 
   return (
@@ -25,8 +25,8 @@ export default function Badge({ children, variant = 'default', className = '' })
     >
       {variant === 'live' && (
         <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-500" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22D3EE] opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#22D3EE]" />
         </span>
       )}
       {children}

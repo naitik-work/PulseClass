@@ -11,7 +11,7 @@ export default function Spinner({ size = 'md', className = '' }) {
 
   return (
     <svg
-      className={`animate-spin text-indigo-500 ${sizes[size]} ${className}`}
+      className={`animate-spin text-[#22D3EE] ${sizes[size]} ${className}`}
       viewBox="0 0 24 24"
       fill="none"
       role="status"
@@ -54,7 +54,7 @@ export function Skeleton({ className = '', lines = 1 }) {
       {Array.from({ length: lines }).map((_, i) => (
         <div
           key={i}
-          className={`bg-gray-100 rounded-md animate-pulse ${className}`}
+          className={`bg-slate-100 dark:bg-[#151C27] rounded-md animate-pulse ${className}`}
           style={{ height: '16px', width: i === lines - 1 ? '70%' : '100%' }}
         />
       ))}

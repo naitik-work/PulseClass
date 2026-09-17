@@ -10,19 +10,19 @@ export default function Card({
   ...props
 }) {
   const variantStyles = {
-    default: 'bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-slate-800 shadow-2xs dark:shadow-none',
-    subtle: 'bg-slate-50/60 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/80',
-    elevated: 'bg-white dark:bg-[#161f30] border border-slate-200/60 dark:border-slate-700/60 shadow-xs dark:shadow-md',
-    flat: 'bg-white dark:bg-[#111827]',
+    default: 'bg-[#0F141D] border border-[#1E293B]',
+    subtle: 'bg-[#0C1119] border border-[#1E293B]/70',
+    elevated: 'bg-[#151C27] border border-[#1E293B] shadow-sm shadow-black/40',
+    flat: 'bg-[#0F141D]',
   };
 
   const interactiveStyles = interactive
-    ? 'hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-xs transition-all duration-150 cursor-pointer active:scale-[0.995]'
+    ? 'hover:border-[#334155] hover:bg-[#111823] transition-all duration-150 cursor-pointer active:scale-[0.995]'
     : '';
 
   return (
     <div
-      className={`rounded-xl text-slate-900 dark:text-slate-100 ${variantStyles[variant] || variantStyles.default} ${interactiveStyles} ${
+      className={`rounded-2xl text-[#F1F5F9] ${variantStyles[variant] || variantStyles.default} ${interactiveStyles} ${
         padding ? 'p-5 sm:p-6' : ''
       } ${className}`}
       {...props}

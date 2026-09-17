@@ -12,21 +12,21 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium tracking-tight transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer rounded-lg';
+    'inline-flex items-center justify-center font-medium tracking-tight transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22D3EE] disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer rounded-lg';
 
   const variants = {
     primary:
-      'bg-indigo-600 dark:bg-indigo-500 !text-white hover:bg-indigo-500 dark:hover:bg-indigo-400 active:bg-indigo-700 dark:active:bg-indigo-600 shadow-xs hover:shadow-sm active:scale-[0.98]',
+      'bg-[#22D3EE] hover:bg-[#06B6D4] active:bg-[#0891B2] !text-[#061018] font-semibold shadow-xs hover:shadow-[0_0_15px_rgba(34,211,238,0.25)] active:scale-[0.98]',
     secondary:
-      'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50/80 dark:hover:bg-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white active:bg-slate-100 dark:active:bg-slate-800 shadow-2xs active:scale-[0.98]',
+      'bg-[#0F141D] text-[#F1F5F9] border border-[#1E293B] hover:bg-[#151C27] hover:border-[#334155] active:bg-[#111823] shadow-2xs active:scale-[0.98]',
     outline:
-      'bg-transparent text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-white active:scale-[0.98]',
+      'bg-transparent text-[#F1F5F9] border border-[#1E293B] hover:bg-[#0F141D] hover:border-[#334155] active:bg-[#151C27] active:scale-[0.98]',
     danger:
-      'bg-rose-600 dark:bg-rose-500 !text-white hover:bg-rose-500 dark:hover:bg-rose-400 active:bg-rose-700 dark:active:bg-rose-600 shadow-xs active:scale-[0.98]',
+      'bg-[#FB7185] hover:bg-[#F43F5E] active:bg-[#E11D48] !text-[#061018] font-semibold shadow-xs active:scale-[0.98]',
     ghost:
-      'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800 active:bg-slate-200/70 dark:active:bg-slate-700 active:scale-[0.98]',
+      'text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#151C27] active:bg-[#1E293B] active:scale-[0.98]',
     success:
-      'bg-emerald-600 dark:bg-emerald-500 !text-white hover:bg-emerald-500 dark:hover:bg-emerald-400 active:bg-emerald-700 dark:active:bg-emerald-600 shadow-xs active:scale-[0.98]',
+      'bg-[#34D399] hover:bg-[#10B981] active:bg-[#059669] !text-[#061018] font-semibold shadow-xs active:scale-[0.98]',
   };
 
   const sizes = {

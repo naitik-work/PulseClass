@@ -56,7 +56,7 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-slate-950/40 dark:bg-slate-950/70 backdrop-blur-xs animate-fade-in transition-opacity"
+        className="absolute inset-0 bg-[#080B12]/80 backdrop-blur-xs animate-fade-in transition-opacity"
         onClick={onClose}
       />
 
@@ -64,15 +64,15 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
       <div
         ref={modalRef}
         tabIndex={-1}
-        className={`relative bg-white dark:bg-[#111827] text-slate-900 dark:text-slate-100 rounded-xl shadow-xl dark:shadow-2xl border border-slate-200/80 dark:border-slate-800 w-full ${sizes[size]} animate-scale-in`}
+        className={`relative bg-[#0F141D] text-[#F1F5F9] rounded-2xl shadow-2xl border border-[#1E293B] w-full ${sizes[size]} animate-scale-in`}
       >
         {/* Header */}
         {title && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800">
-            <h2 className="text-base font-semibold text-slate-900 dark:text-white tracking-tight">{title}</h2>
+          <div className="flex items-center justify-between px-6 py-4.5 border-b border-[#1E293B]">
+            <h2 className="text-base font-semibold text-[#F1F5F9] tracking-tight">{title}</h2>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#151C27] transition-colors cursor-pointer"
               aria-label="Close"
             >
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none">

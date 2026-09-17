@@ -31,13 +31,13 @@ export default function ThemeToggle({ className = '', size = 'md' }) {
       title={tooltipText}
       aria-label={tooltipText}
       className={`relative inline-flex items-center justify-center rounded-lg cursor-pointer
-        border border-slate-200/80 dark:border-slate-800
-        bg-white/80 dark:bg-slate-900/80
-        text-slate-600 dark:text-slate-300
-        hover:text-slate-900 dark:hover:text-white
-        hover:bg-slate-100/90 dark:hover:bg-slate-800/90
-        hover:border-slate-300 dark:hover:border-slate-700
-        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500
+        border border-[#1E293B]
+        bg-[#0F141D]
+        text-[#94A3B8]
+        hover:text-[#F1F5F9]
+        hover:bg-[#151C27]
+        hover:border-[#334155]
+        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22D3EE]
         active:scale-95 transition-all duration-150 shadow-2xs
         ${sizeClasses[size] || sizeClasses.md}
         ${className}

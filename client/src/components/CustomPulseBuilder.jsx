@@ -104,8 +104,8 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
                 onClick={() => setResponseType(opt.value)}
                 className={`px-3 py-2 text-xs font-semibold rounded-lg border transition-all cursor-pointer ${
                   responseType === opt.value
-                    ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 shadow-2xs'
-                    : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800'
+                    ? 'border-[#22D3EE] bg-[#22D3EE]/10 text-[#22D3EE] shadow-2xs'
+                    : 'border-[#1E293B] text-[#94A3B8] hover:border-[#334155] hover:bg-[#151C27]'
                 }`}
               >
                 {opt.label}
@@ -117,13 +117,13 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
         {/* Choice options */}
         {responseType === 'choice' && (
           <div>
-            <label className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2 block">
+            <label className="text-xs font-semibold uppercase tracking-wider text-[#94A3B8] mb-2 block">
               Answer Options
             </label>
             <div className="space-y-2">
               {options.map((opt, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
+                  <span className="w-6 h-6 rounded bg-[#151C27] flex items-center justify-center text-xs font-mono font-bold text-[#94A3B8]">
                     {String.fromCharCode(65 + i)}
                   </span>
                   <input
@@ -131,12 +131,12 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
                     value={opt}
                     onChange={(e) => handleOptionChange(i, e.target.value)}
                     placeholder={`Option ${String.fromCharCode(65 + i)}`}
-                    className="flex-1 px-3 py-1.5 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:border-indigo-600 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/15 outline-none bg-white dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500"
+                    className="flex-1 px-3 py-1.5 border border-[#1E293B] rounded-lg text-sm focus:border-[#22D3EE] focus:ring-2 focus:ring-[#22D3EE]/25 outline-none bg-[#0B1018] text-[#F1F5F9] placeholder-[#64748B]"
                   />
                   {options.length > 2 && (
                     <button
                       onClick={() => handleRemoveOption(i)}
-                      className="text-slate-400 hover:text-rose-500 transition-colors p-1 cursor-pointer"
+                      className="text-[#64748B] hover:text-[#FB7185] transition-colors p-1 cursor-pointer"
                       title="Remove option"
                     >
                       <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -150,7 +150,7 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
                 <button
                   type="button"
                   onClick={handleAddOption}
-                  className="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold cursor-pointer flex items-center gap-1 mt-1"
+                  className="text-xs text-[#22D3EE] hover:text-[#06B6D4] font-semibold cursor-pointer flex items-center gap-1 mt-1"
                 >
                   + Add Another Option
                 </button>
@@ -161,7 +161,7 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
 
         {/* Timer */}
         <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2 block">
+          <label className="text-xs font-semibold uppercase tracking-wider text-[#94A3B8] mb-2 block">
             Time Limit
           </label>
           <div className="flex gap-2">
@@ -172,8 +172,8 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
                 onClick={() => setTimer(t)}
                 className={`px-3 py-1.5 text-xs font-mono font-semibold rounded-lg border transition-all cursor-pointer ${
                   timer === t
-                    ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 shadow-2xs'
-                    : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800'
+                    ? 'border-[#22D3EE] bg-[#22D3EE]/10 text-[#22D3EE] shadow-2xs'
+                    : 'border-[#1E293B] text-[#94A3B8] hover:border-[#334155] hover:bg-[#151C27]'
                 }`}
               >
                 {t}s
@@ -183,23 +183,23 @@ export default function CustomPulseBuilder({ isOpen, onClose, onLaunch }) {
         </div>
 
         {/* Anonymous toggle */}
-        <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800">
+        <div className="flex items-center justify-between p-3 rounded-xl bg-[#0C1119] border border-[#1E293B]">
           <div>
-            <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wider">100% Anonymous Mode</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Student identities are never shown to the instructor</p>
+            <p className="text-xs font-semibold text-[#F1F5F9] uppercase tracking-wider">100% Anonymous Mode</p>
+            <p className="text-xs text-[#94A3B8] mt-0.5">Student identities are never shown to the instructor</p>
           </div>
           <button
             type="button"
             onClick={() => setIsAnonymous(!isAnonymous)}
             className={`relative w-10 h-5.5 rounded-full transition-colors cursor-pointer ${
-              isAnonymous ? 'bg-indigo-600 dark:bg-indigo-500' : 'bg-slate-300 dark:bg-slate-700'
+              isAnonymous ? 'bg-[#22D3EE]' : 'bg-[#1E293B]'
             }`}
             role="switch"
             aria-checked={isAnonymous}
           >
             <span
-              className={`absolute top-0.5 left-0.5 w-4.5 h-4.5 bg-white rounded-full shadow-xs transition-transform ${
-                isAnonymous ? 'translate-x-4.5' : ''
+              className={`absolute top-0.5 left-0.5 w-4.5 h-4.5 bg-[#061018] rounded-full shadow-xs transition-transform ${
+                isAnonymous ? 'translate-x-4.5' : 'bg-[#94A3B8]'
               }`}
             />
           </button>

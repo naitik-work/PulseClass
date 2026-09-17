@@ -3,83 +3,42 @@
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
-  :root {
-    /* Semantic Design Tokens - Light Theme */
-    --background: #f8fafc;
-    --foreground: #0f172a;
-    --surface: #ffffff;
-    --surface-elevated: #ffffff;
-    --surface-muted: #f1f5f9;
-    --surface-subtle: #f8fafc;
-
-    --border: #e2e8f0;
-    --border-strong: #cbd5e1;
-
-    --primary: #4f46e5;
-    --primary-hover: #4338ca;
-    --primary-soft: #eef2ff;
-
-    --success: #10b981;
-    --success-soft: #ecfdf5;
-
-    --warning: #f59e0b;
-    --warning-soft: #fffbeb;
-
-    --danger: #ef4444;
-    --danger-soft: #fef2f2;
-
-    --muted: #64748b;
-    --muted-foreground: #94a3b8;
-
-    --input: #ffffff;
-    --ring: rgba(79, 70, 229, 0.2);
-
-    /* Legacy Token Aliases */
-    --bg-app: var(--background);
-    --bg-surface: var(--surface);
-    --bg-surface-subtle: var(--surface-subtle);
-    --border-subtle: var(--border);
-    --text-primary: var(--foreground);
-    --text-secondary: var(--muted);
-    --text-tertiary: var(--muted-foreground);
-    --brand-primary: var(--primary);
-    --brand-primary-hover: var(--primary-hover);
-    --brand-primary-soft: var(--primary-soft);
-  }
-
+  :root,
   :root.dark,
   [data-theme='dark'] {
-    /* Semantic Design Tokens - Dark Theme */
-    --background: #090d16;
-    --foreground: #f8fafc;
-    --surface: #111827;
-    --surface-elevated: #1a2234;
-    --surface-muted: #1e293b;
-    --surface-subtle: #151d2c;
+    /* Semantic Design Tokens - Midnight + Electric Cyan (Dark-Mode-First) */
+    --background: #080B12;
+    --surface: #0F141D;
+    --surface-elevated: #151C27;
+    --surface-muted: #111823;
+    --surface-subtle: #0C1119;
 
-    --border: #1e293b;
+    --foreground: #F1F5F9;
+    --muted: #94A3B8;
+    --muted-foreground: #64748B;
+
+    --border: #1E293B;
     --border-strong: #334155;
 
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --primary-soft: rgba(99, 102, 241, 0.15);
+    --primary: #22D3EE;
+    --primary-hover: #06B6D4;
+    --primary-soft: rgba(34, 211, 238, 0.12);
 
-    --success: #34d399;
-    --success-soft: rgba(16, 185, 129, 0.15);
+    --success: #34D399;
+    --success-soft: rgba(52, 211, 153, 0.12);
 
-    --warning: #fbbf24;
-    --warning-soft: rgba(245, 158, 11, 0.15);
+    --warning: #FBBF24;
+    --warning-soft: rgba(251, 191, 36, 0.12);
 
-    --danger: #f87171;
-    --danger-soft: rgba(239, 68, 68, 0.15);
+    --danger: #FB7185;
+    --danger-soft: rgba(251, 113, 133, 0.12);
 
-    --muted: #94a3b8;
-    --muted-foreground: #64748b;
+    --info: #60A5FA;
 
-    --input: #0f172a;
-    --ring: rgba(99, 102, 241, 0.35);
+    --input: #0B1018;
+    --ring: rgba(34, 211, 238, 0.30);
 
-    /* Legacy Token Aliases */
+    /* Token Aliases */
     --bg-app: var(--background);
     --bg-surface: var(--surface);
     --bg-surface-subtle: var(--surface-subtle);
@@ -185,10 +144,10 @@ html.theme-ready .theme-transition {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
   }
   50% {
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.75);
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
   }
 }
 
@@ -218,10 +177,10 @@ html.theme-ready .theme-transition {
 
 .dark .glass-panel,
 .glass-panel-dark {
-  background: rgba(17, 24, 39, 0.85);
+  background: rgba(15, 20, 29, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(30, 41, 59, 0.8);
 }
 
 /* Toast container */

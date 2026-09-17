@@ -13,8 +13,7 @@
       (function() {
         try {
           var savedTheme = localStorage.getItem('pulseclass-theme');
-          var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = savedTheme ? savedTheme : (systemDark ? 'dark' : 'light');
+          var theme = savedTheme ? savedTheme : 'dark';
           if (theme === 'dark') {
             document.documentElement.classList.add('dark');
             document.documentElement.setAttribute('data-theme', 'dark');
